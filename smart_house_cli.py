@@ -10,8 +10,8 @@ class Room:
         self.name = name
         self.room_id = roomid
         self.lighting = False
-        self.smoke_detector_operational = True
-        self.smoke_detector_alert = False
+        self.smoke_detector_operational = False
+        self.smoke_detector_alert = True
         self.air_quality = 50
 
     def print_status(self):
@@ -19,9 +19,7 @@ class Room:
               '    Temperature: ' + str(self.temperature) + '\n'
               '    Humidity: ' + str(self.humidity) + '\n'
               '    Air quality: ' + str(self.air_quality) + '\n'
-              '    Lights: ', 'On\n' if self.lighting else 'Off\n',
-              '    Smoke detector operational: ', 'Yes\n' if self.smoke_detector_operational else 'No\n',
-              '    Smoke detector alert: ', 'On\n' if self.smoke_detector_alert else 'Off\n', sep='')
+              '    Lights: ', 'On\n' if self.lighting else 'Off\n')
 
 
 class SmartHouse:
@@ -59,6 +57,25 @@ class SmartHouse:
         elif attribute == 'humidity':
             self.rooms[roomid - 1].humidity = val
 
+    def get_smoke_detector_status(self):
+        unoperational = []
+        alert = []
+        for r in self.rooms:
+            if not r.smoke_detector_operational:
+                unoperational.append(str(r.room_id))
+            if r.smoke_detector_alert:
+                alert.append(str(r.room_id))
+        if unoperational == [] and alert == []:
+            return 'All detectors operational'
+        detector_status = ''
+        if unoperational:
+            detector_status += ' WARNING! Unoperational detectors in rooms: '
+            detector_status += ', '.join(unoperational)
+        if alert:
+            detector_status += ' ALERT! Detectors alerting in rooms: '
+            detector_status += ', '.join(alert)
+        return detector_status
+
 
 def help_text():
     print('Here are your command options:\n\n'
@@ -91,7 +108,8 @@ while cmnd != 'q' and cmnd != 'quit':
               '    Humidity: ' + str(house.humidity_out) + '%\n'
               '    Wind: ' + str(house.wind_speed) + ' m/s ' + house.wind_direction + '\n'
               'Doors: ' + house.get_door_status() + '\n'
-              'Outside lighting: ' + house.get_lighting_status() + '\n')
+              'Outside lighting: ' + house.get_lighting_status() + '\n'
+              'Smoke detectors: ' + house.get_smoke_detector_status())
         print('Rooms:')
         for room in house.rooms:
             room.print_status()
@@ -110,7 +128,9 @@ while cmnd != 'q' and cmnd != 'quit':
                             '    2 outside\n')
         if lights_type == '1':
             room_id = input('Give the room index you wish to control\n')
-            toggle_type = input('On (1) or off (2)?\n')
+            toggle_type = input('Do you want to turn the lights on or off?\n'
+                                '    1 On\n'
+                                '    2 Off\n')
             if toggle_type == '1':
                 print('Room ' + room_id + ': lights are now turned on')
                 house.rooms[int(room_id) - 1].lighting = True
@@ -118,7 +138,9 @@ while cmnd != 'q' and cmnd != 'quit':
                 print('Room ' + room_id + ': lights are now turned off')
                 house.rooms[int(room_id) - 1].lighting = False
         elif lights_type == '2':
-            toggle_type = input('On (1) or off (2)?\n')
+            toggle_type = input('Do you want to turn the lights on or off?\n'
+                                '    1 On\n'
+                                '    2 Off\n')
             if toggle_type == '1':
                 print('Outside lights are now turned on')
                 house.lighting_out = True
@@ -130,11 +152,23 @@ while cmnd != 'q' and cmnd != 'quit':
         house.print_room_status(room_id)
         prop_num = input('Input the number of the property you wish to control\n'
                          '    1 temperature\n'
-                         '    2 humidity\n')
-        properties = {'1': 'temperature', '2': 'humidity'}
-        prop_value = input('Give new value for ' + properties[prop_num] + ' in room #' + room_id + '\n')
-        house.set_room_attribute(room_id, properties[prop_num], prop_value)
-        house.print_room_status(room_id)
+                         '    2 humidity\n'
+                         '    3 lights\n')
+        properties = {'1': 'temperature', '2': 'humidity', '3': 'lights'}
+        if prop_num in ('1', '2'):
+            prop_value = input('Give new value for ' + properties[prop_num] + ' in room #' + room_id + '\n')
+            house.set_room_attribute(room_id, properties[prop_num], prop_value)
+            house.print_room_status(room_id)
+        elif prop_num == '3':
+            toggle_type = input('Do you want to turn the lights on or off?\n'
+                                '    1 On\n'
+                                '    2 Off\n')
+            if toggle_type == '1':
+                print('Room ' + room_id + ': lights are now turned on')
+                house.rooms[int(room_id) - 1].lighting = True
+            elif toggle_type == '2':
+                print('Room ' + room_id + ': lights are now turned off')
+                house.rooms[int(room_id) - 1].lighting = False
     elif cmnd == 'help':
         help_text()
     else:
