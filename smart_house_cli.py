@@ -19,7 +19,7 @@ class Room:
               '    Temperature: ' + str(self.temperature) + '\n'
               '    Humidity: ' + str(self.humidity) + '\n'
               '    Air quality: ' + str(self.air_quality) + '\n'
-              '    Lights: ', 'On\n' if self.lighting else 'Off\n')
+              '    Lights: ', 'On\n' if self.lighting else 'Off')
 
 
 class SmartHouse:
@@ -86,7 +86,14 @@ def help_text():
           '    lights      Modify lighting\n'
           '    set         Modify system properties\n'
           '    help        Prints this help text\n'
-          '    q = quit    Exits program\n')
+          '    q, quit     Exits program')
+
+
+def get_command(last_command=None):
+    if last_command != 'help':
+        return input('\nWhat do you wish to do? (type "help" to show all available commands)\n')
+    else:
+        return input('\nWhat do you wish to do?\n')
 
 
 house = SmartHouse(20, 60)
@@ -96,11 +103,9 @@ house.add_room('Living room', 25, 42)
 
 # Printing the possible options for user
 help_text()
-cmnd = input('What do you wish to do? \n')
+cmnd = get_command('help')
 # Start looping. Exit with 'q' or 'quit'
 while cmnd != 'q' and cmnd != 'quit':
-    print('You chose ' + cmnd)
-
     if cmnd == 'status':
         print('Printing status... \n'
               'Outside:\n'
@@ -110,8 +115,9 @@ while cmnd != 'q' and cmnd != 'quit':
               'Doors: ' + house.get_door_status() + '\n'
               'Outside lighting: ' + house.get_lighting_status() + '\n'
               'Smoke detectors: ' + house.get_smoke_detector_status())
-        print('Rooms:')
+        print('\nRooms:')
         for room in house.rooms:
+            print()
             room.print_status()
     elif cmnd == 'room':
         room_id = input('Give the room index you wish to observe\n')
@@ -175,7 +181,7 @@ while cmnd != 'q' and cmnd != 'quit':
         print('Unknown command')
 
     # At the end of the loop ask user for new input
-    cmnd = input('What do you wish to do?\n')
+    cmnd = get_command(cmnd)
 
 # Termninate program as command was 'q' or 'quit'
 print('Terminating program...')
