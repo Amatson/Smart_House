@@ -10,7 +10,7 @@ class Room:
         self.name = name
         self.room_id = roomid
         self.lighting = False
-        self.smoke_detector_operational = False
+        self.smoke_detector_operational = True
         self.smoke_detector_alert = True
         self.air_quality = 50
 
