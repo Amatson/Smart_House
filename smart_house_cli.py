@@ -41,6 +41,11 @@ class SmartHouse:
     def get_lighting_status(self):
         return 'On' if self.lighting_out else 'Off'
 
+    def print_room_info(self):
+        print('Rooms:')
+        for r in self.rooms:
+            print(str(r.room_id) + ' ' + r.name)
+
     def print_room_status(self, roomid):
         roomid = int(roomid)
         if roomid > len(self.rooms):
@@ -120,6 +125,7 @@ while cmnd != 'q' and cmnd != 'quit':
             print()
             room.print_status()
     elif cmnd == 'room':
+        house.print_room_info()
         room_id = input('Give the room index you wish to observe\n')
         house.print_room_status(room_id)
     elif cmnd == 'lock':
@@ -133,6 +139,7 @@ while cmnd != 'q' and cmnd != 'quit':
                             '    1 inside\n'
                             '    2 outside\n')
         if lights_type == '1':
+            house.print_room_info()
             room_id = input('Give the room index you wish to control\n')
             toggle_type = input('Do you want to turn the lights on or off?\n'
                                 '    1 On\n'
@@ -154,6 +161,7 @@ while cmnd != 'q' and cmnd != 'quit':
                 print('Outside lights are now turned off')
                 house.lighting_out = False
     elif cmnd == 'set':
+        house.print_room_info()
         room_id = input('Give the room index you wish to control\n')
         house.print_room_status(room_id)
         prop_num = input('Input the number of the property you wish to control\n'
