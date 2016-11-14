@@ -17,7 +17,8 @@ class Room:
     def print_status(self):
         print(self.name + ' (' + str(self.room_id) + ')\n'
               '    Temperature: ' + str(self.temperature) + '\n'
-              '    Humidity: ' + str(self.humidity))
+              '    Humidity: ' + str(self.humidity) + '\n'
+              '    Lights:', 'On' if self.lighting else 'Off')
 
 
 class SmartHouse:
@@ -62,6 +63,7 @@ def help_text():
           '    room        See room status\n'
           '    lock        Locks all doors\n'
           '    unlock      Unlocks all doors\n'
+          '    lights      Modify lighting\n'
           '    set         Modify system properties\n'
           '    help        Prints this help text\n'
           '    q = quit    Exits program\n')
@@ -86,7 +88,7 @@ while cmnd != 'q' and cmnd != 'quit':
               '    Humidity: ' + str(house.humidity_out) + '%\n'
               '    Wind: ' + str(house.wind_speed) + ' m/s ' + house.wind_direction + '\n'
               'Doors: ' + house.get_door_status() + '\n'
-              'Lighting: ' + house.get_lighting_status() + '\n')
+              'Outside lighting: ' + house.get_lighting_status() + '\n')
         print('Rooms:')
         for room in house.rooms:
             room.print_status()
@@ -99,14 +101,36 @@ while cmnd != 'q' and cmnd != 'quit':
     elif cmnd == 'unlock':
         house.doors_locked = False
         print('Unlocking all doors')
+    elif cmnd == 'lights':
+        lights_type = input('Which lights do you wish to control?\n'
+                            '    1 inside\n'
+                            '    2 outside\n')
+        if lights_type == '1':
+            room_id = input('Give the room index you wish to control\n')
+            toggle_type = input('On (1) or off (2)?\n')
+            if toggle_type == '1':
+                print('Room ' + room_id + ': lights are now turned on')
+                house.rooms[int(room_id) - 1].lighting = True
+            elif toggle_type == '2':
+                print('Room ' + room_id + ': lights are now turned off')
+                house.rooms[int(room_id) - 1].lighting = False
+        elif lights_type == '2':
+            toggle_type = input('On (1) or off (2)?\n')
+            if toggle_type == '1':
+                print('Outside lights are now turned on')
+                house.lighting_out = True
+            elif toggle_type == '2':
+                print('Outside lights are now turned off')
+                house.lighting_out = False
     elif cmnd == 'set':
         room_id = input('Give the room index you wish to control\n')
         house.print_room_status(room_id)
-        prop = input('Which property you wish to modify? Here are the options:\n'
-                     '    temperature\n'
-                     '    humidity\n')
-        value = input('Give new value for ' + prop + ' in room #' + room_id + '\n')
-        house.set_room_attribute(room_id, prop, value)
+        prop_num = input('Input the number of the property you wish to control\n'
+                         '    1 temperature\n'
+                         '    2 humidity\n')
+        properties = {'1': 'temperature', '2': 'humidity'}
+        prop_value = input('Give new value for ' + properties[prop_num] + ' in room #' + room_id + '\n')
+        house.set_room_attribute(room_id, properties[prop_num], prop_value)
         house.print_room_status(room_id)
     elif cmnd == 'help':
         help_text()
