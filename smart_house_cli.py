@@ -1,4 +1,4 @@
-# This is UIC coudse Smart House CLI demo
+# This is UIC course Smart House CLI demo
 
 print('Welcome to Smart House!')
 
@@ -156,7 +156,7 @@ while cmnd != 'q' and cmnd != 'quit':
                          '    3 lights\n')
         properties = {'1': 'temperature', '2': 'humidity', '3': 'lights'}
         if prop_num in ('1', '2'):
-            prop_value = input('Give new value for ' + properties[prop_num] + ' in room #' + room_id + '\n')
+            prop_value = input('Give a new value for the ' + properties[prop_num] + ' in room ' + room_id + '\n')
             house.set_room_attribute(room_id, properties[prop_num], prop_value)
             house.print_room_status(room_id)
         elif prop_num == '3':
