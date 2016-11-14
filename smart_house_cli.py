@@ -3,6 +3,59 @@
 print('Welcome to Smart House!')
 
 
+class Room:
+    def __init__(self, roomid, name, temperature, humidity):
+        self.temperature = temperature
+        self.humidity = humidity
+        self.name = name
+        self.room_id = roomid
+        self.lighting = False
+        self.smoke_detector_operational = True
+        self.smoke_detector_alert = False
+        self.air_quality = 50
+
+    def print_status(self):
+        print(self.name + ' (' + str(self.room_id) + ')\n'
+              '    Temperature: ' + str(self.temperature) + '\n'
+              '    Humidity: ' + str(self.humidity))
+
+
+class SmartHouse:
+    def __init__(self, temperature_out, humidity_out):
+        self.temperature_out = temperature_out
+        self.humidity_out = humidity_out
+        self.wind_speed = 5
+        self.wind_direction = 'Southwest'
+        self.lighting_out = False
+        self.doors_locked = False
+        self.rooms = []
+
+    def add_room(self, name, temperature, humidity):
+        self.rooms.append(Room(len(self.rooms) + 1, name, temperature, humidity))
+
+    def get_door_status(self):
+        return 'Locked' if self.doors_locked else 'Unlocked'
+
+    def get_lighting_status(self):
+        return 'On' if self.lighting_out else 'Off'
+
+    def print_room_status(self, roomid):
+        roomid = int(roomid)
+        if roomid > len(self.rooms):
+            print('Room not found.')
+        else:
+            self.rooms[roomid - 1].print_status()
+
+    def set_room_attribute(self, roomid, attribute, val):
+        roomid = int(roomid)
+        if roomid > len(self.rooms):
+            return
+        if attribute == 'temperature':
+            self.rooms[roomid - 1].temperature = val
+        elif attribute == 'humidity':
+            self.rooms[roomid - 1].humidity = val
+
+
 def help_text():
     print('Here are your command options:\n\n'
           '    status      Full status of the system\n'
@@ -14,9 +67,13 @@ def help_text():
           '    q = quit    Exits program\n')
 
 
+house = SmartHouse(20, 60)
+house.add_room('Main room', 21, 40)
+house.add_room('Bed room', 20, 45)
+house.add_room('Living room', 25, 42)
+
 # Printing the possible options for user
 help_text()
-
 cmnd = input('What do you wish to do? \n')
 # Start looping. Exit with 'q' or 'quit'
 while cmnd != 'q' and cmnd != 'quit':
@@ -25,34 +82,32 @@ while cmnd != 'q' and cmnd != 'quit':
     if cmnd == 'status':
         print('Printing status... \n'
               'Outside:\n'
-              '    Temperature: -4 C\n'
-              '    Humidity: 60%\n'
-              '    Wind: 5 m/s Nortwest\n'
-              'Doors: Locked\n'
-              'Main room:\n'
-              '    Temperature: +22 C\n'
-              '    Humidity: 40%\n')
+              '    Temperature: ' + str(house.temperature_out) + 'C\n'
+              '    Humidity: ' + str(house.humidity_out) + '%\n'
+              '    Wind: ' + str(house.wind_speed) + ' m/s ' + house.wind_direction + '\n'
+              'Doors: ' + house.get_door_status() + '\n'
+              'Lighting: ' + house.get_lighting_status() + '\n')
+        print('Rooms:')
+        for room in house.rooms:
+            room.print_status()
     elif cmnd == 'room':
         room_id = input('Give the room index you wish to observe\n')
-        print('Status of the room #' + room_id + ' is:\n'
-              '    Temperature: +25 C\n'
-              '    Humidity: 50%')
+        house.print_room_status(room_id)
     elif cmnd == 'lock':
         print('Locking all doors')
+        house.doors_locked = True
     elif cmnd == 'unlock':
+        house.doors_locked = False
         print('Unlocking all doors')
     elif cmnd == 'set':
-        room_id = input('Give the room index you wish to control, 0 to all rooms at once\n')
-        print('Status of the room #' + room_id + ' is: \n'
-              '    Temperature: +25 C\n'
-              '    Humidity: 50%')
+        room_id = input('Give the room index you wish to control\n')
+        house.print_room_status(room_id)
         prop = input('Which property you wish to modify? Here are the options:\n'
                      '    temperature\n'
                      '    humidity\n')
         value = input('Give new value for ' + prop + ' in room #' + room_id + '\n')
-        print('Status of the room #' + room_id + ' is:\n'
-              '    Temperature: +60 C\n'
-              '    Humidity: 90%')
+        house.set_room_attribute(room_id, prop, value)
+        house.print_room_status(room_id)
     elif cmnd == 'help':
         help_text()
     else:
