@@ -18,7 +18,10 @@ class Room:
         print(self.name + ' (' + str(self.room_id) + ')\n'
               '    Temperature: ' + str(self.temperature) + '\n'
               '    Humidity: ' + str(self.humidity) + '\n'
-              '    Lights:', 'On' if self.lighting else 'Off')
+              '    Air quality: ' + str(self.air_quality) + '\n'
+              '    Lights: ', 'On\n' if self.lighting else 'Off\n',
+              '    Smoke detector operational: ', 'Yes\n' if self.smoke_detector_operational else 'No\n',
+              '    Smoke detector alert: ', 'On\n' if self.smoke_detector_alert else 'Off\n', sep='')
 
 
 class SmartHouse:
