@@ -5,7 +5,8 @@ angular.module('smartHouseApp', [
   'ngRoute',
   'smartHouseApp.home',
   'smartHouseApp.mainRoom',
-  'smartHouseApp.version'
+  'smartHouseApp.bedRoom',
+  'smartHouseApp.livingRoom'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
