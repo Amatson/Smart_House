@@ -1,1 +1,27 @@
 <p>This is the partial for home.</p>
+<p>Outside temperature: 16 C</p>
+<p>Outside humidity: 60 %</p>
+
+
+<div class="container">
+  <button id="lockAllDoors" name="open" type="button"
+  ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[!doorsLocked]"
+  ng-click="doorsLocked = !doorsLocked" onclick="lockDoors(this.name)">
+  {{!doorsLocked && 'Lock' || 'Unlock'}} all doors
+</button>
+</div>
+
+<br>
+
+<div class="container">
+  <button id="turnLightsOn" name="lightsOn" type="button"
+  class="btn btn-primary"
+  onclick="turnLights(this.id)">
+  Turn lights on
+</button>
+<button id="turnLightsOff" name="lightsOff" type="button"
+class="btn btn-default disabled"
+onclick="turnLights(this.id)">
+Lights are off
+</button>
+</div>
