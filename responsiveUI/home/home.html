@@ -14,16 +14,13 @@
 <br>
 
 <div class="container">
-  <button id="turnLightsOn" name="lightsOn" type="button"
+<button id="turnLights" type="button"
   class="btn btn-primary"
-  onclick="turnLights(this.id)">
-    Turn lights on
+  ng-click="turnLights()">
+  Turn lights {{light && 'off' || 'on'}}
 </button>
-<button id="turnLightsOff" name="lightsOff" type="button"
-  class="btn btn-default disabled"
-  onclick="turnLights(this.id)">
-  Lights are off
-</button>
+
+<img ng-src="./images/{{bulb}}" width="40" height="40"/>
 </div>
 
 <br>
@@ -31,20 +28,18 @@
 <div class="container">
     <button id="allDoors" type="button"
     ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockAll]"
-    ng-click="testDoors('allDoors')">
+    ng-click="lockDoors('allDoors')">
       {{lockAll && 'Lock' || 'Unlock'}} all doors
   </button>
-
   <button id="frontDoor" type="button"
     ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockFront]"
-    ng-click="testDoors('frontDoor')">
+    ng-click="lockDoors('frontDoor')">
       {{lockFront && 'Lock' || 'Unlock'}} front door
-</button>
-<button id="backDoor" type="button"
-    ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockBack]"
-    ng-click="testDoors('backDoor')">
-      {{lockBack && 'Lock' || 'Unlock'}} back door
-</button>
-
+  </button>
+  <button id="backDoor" type="button"
+      ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockBack]"
+      ng-click="lockDoors('backDoor')">
+        {{lockBack && 'Lock' || 'Unlock'}} back door
+  </button>
 
 </div>

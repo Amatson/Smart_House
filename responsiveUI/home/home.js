@@ -9,22 +9,21 @@ angular.module('smartHouseApp.home', ['ngRoute'])
   });
 }])
 
-/*
-.controller('HomeCtrl', [function() {
-
-}]);
-*/
-
-
-
 .controller('HomeCtrl',['$scope', function($scope){
 
-  //$scope.bool = true;
+  $scope.bulb = "bulb_off.png"
+  $scope.light = false;
   $scope.lockFront = true;
   $scope.lockBack = true;
   $scope.lockAll = true;
 
-  $scope.testDoors = function(door) {
+
+  $scope.turnLights = function() {
+    $scope.light = ($scope.light) ? (false) : (true);
+    $scope.bulb = ($scope.light) ? ("bulb_on.png") : ("bulb_off.png");
+  }
+
+  $scope.lockDoors = function(door) {
     if(door == "allDoors") {
         $scope.lockFront = !$scope.lockAll;
         $scope.lockBack = !$scope.lockAll;
@@ -55,6 +54,7 @@ function lockDoors(state) {
   }
 }
 
+/*
 
 function turnLights(button) {
   if(button == "turnLightsOn") {
@@ -70,3 +70,4 @@ function turnLights(button) {
     document.getElementById("turnLightsOff").childNodes[0].nodeValue="Lights are off"
   }
 }
+*/
