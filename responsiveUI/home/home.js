@@ -20,44 +20,23 @@ angular.module('smartHouseApp.home', ['ngRoute'])
 .controller('HomeCtrl',['$scope', function($scope){
 
   //$scope.bool = true;
-  $scope.lockAll = true;
   $scope.lockFront = true;
   $scope.lockBack = true;
+  $scope.lockAll = true;
 
   $scope.testDoors = function(door) {
     if(door == "allDoors") {
-      if($scope.lockAll){
-        $scope.lockAll = false;
-        $scope.lockFront = false;
-        $scope.lockBack = false;
-      }
-      else {
-        $scope.lockAll = true;
-        $scope.lockFront = true;
-        $scope.lockBack = true;
-      }
+        $scope.lockFront = !$scope.lockAll;
+        $scope.lockBack = !$scope.lockAll;
     }
     else if(door == "frontDoor") {
-      if($scope.lockFront){
-        $scope.lockAll = false;
-        $scope.lockFront = false;
-      }
-      else {
-        $scope.lockAll = true;
-        $scope.lockFront = true;
-      }
+      $scope.lockFront = !$scope.lockFront;
     }
     else if(door == "backDoor") {
-      if($scope.lockBack){
-        $scope.lockAll = false;
-        $scope.lockBack = false;
+      $scope.lockBack = !$scope.lockBack;
       }
-      else {
-        $scope.lockAll = true;
-        $scope.lockBack = true;
-      }
+    $scope.lockAll = $scope.lockBack && $scope.lockFront;
     }
-  }
 
 }]);
 

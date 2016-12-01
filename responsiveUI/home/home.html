@@ -29,25 +29,19 @@
 <br>
 
 <div class="container">
-    <button id="allDoors"
-    type="button"
+    <button id="allDoors" type="button"
     ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockAll]"
-    ng-model="lockAll"
     ng-click="testDoors('allDoors')">
       {{lockAll && 'Lock' || 'Unlock'}} all doors
   </button>
 
-  <button type="button"
-    id="frontDoor"
+  <button id="frontDoor" type="button"
     ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockFront]"
-    ng-model="lockFront"
     ng-click="testDoors('frontDoor')">
       {{lockFront && 'Lock' || 'Unlock'}} front door
 </button>
-<button type="button"
-    id="backDoor"
+<button id="backDoor" type="button"
     ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockBack]"
-    ng-model="lockBack"
     ng-click="testDoors('backDoor')">
       {{lockBack && 'Lock' || 'Unlock'}} back door
 </button>
