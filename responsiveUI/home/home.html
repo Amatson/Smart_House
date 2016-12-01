@@ -6,7 +6,7 @@
 <div class="container">
   <button id="lockAllDoors" name="open" type="button"
   ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[!doorsLocked]"
-  ng-click="doorsLocked = !doorsLocked" onclick="lockDoors(this.name)">
+  ng-click="doorsLocked = !doorsLocked" onclick = "lockDoors(this.name)">
   {{!doorsLocked && 'Lock' || 'Unlock'}} all doors
 </button>
 </div>
@@ -17,11 +17,40 @@
   <button id="turnLightsOn" name="lightsOn" type="button"
   class="btn btn-primary"
   onclick="turnLights(this.id)">
-  Turn lights on
+    Turn lights on
 </button>
 <button id="turnLightsOff" name="lightsOff" type="button"
-class="btn btn-default disabled"
-onclick="turnLights(this.id)">
-Lights are off
+  class="btn btn-default disabled"
+  onclick="turnLights(this.id)">
+  Lights are off
 </button>
+</div>
+
+<br>
+
+<div class="container">
+    <button id="allDoors"
+    type="button"
+    ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockAll]"
+    ng-model="lockAll"
+    ng-click="testDoors('allDoors')">
+      {{lockAll && 'Lock' || 'Unlock'}} all doors
+  </button>
+
+  <button type="button"
+    id="frontDoor"
+    ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockFront]"
+    ng-model="lockFront"
+    ng-click="testDoors('frontDoor')">
+      {{lockFront && 'Lock' || 'Unlock'}} front door
+</button>
+<button type="button"
+    id="backDoor"
+    ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockBack]"
+    ng-model="lockBack"
+    ng-click="testDoors('backDoor')">
+      {{lockBack && 'Lock' || 'Unlock'}} back door
+</button>
+
+
 </div>
