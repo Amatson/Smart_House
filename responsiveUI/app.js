@@ -24,6 +24,7 @@ angular.module('smartHouseApp', [
       lockAll: true,
       overrideTemp: true,
       temperatureHouse: 22,
+      alerts: "No alerts",
 
       temperatureMainroom: 22,
       temperatureMainroomSet: 22,

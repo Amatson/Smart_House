@@ -24,6 +24,8 @@ angular.module('smartHouseApp.home', ['ngRoute'])
 
     $scope.overrideTemp = GlobalVariables.overrideTemp;
     $scope.temperatureHouse = GlobalVariables.temperatureHouse;
+
+    $scope.alerts = GlobalVariables.alerts;
   }
 
   $scope.updateScope();
