@@ -2,18 +2,18 @@
 
 <p>Outside temperature:
   <span class="fa fa-thermometer-half fa-lg" style="color:red" aria-hidden="true"></span>
-  <span class="infovalue"> {{temperature_out}} &#8451 </span>
+  <span class="infovalue"> {{temperatureOut}} &#8451 </span>
 </p>
 
 <p>Outside humidity:
   <span class="fa fa-tint fa-lg" style="color:blue" aria-hidden="true"></span>
-  <span class="infovalue"> {{humidity_out}} % </span>
+  <span class="infovalue"> {{humidityOut}} % </span>
 </p>
 
 <div class="container">
-  <button id="turnLights" type="button"
+  <button id="turnOutdoorLights" type="button"
     class="btn btn-primary"
-    ng-click="turnLights()">
+    ng-click="turnOutdoorLights()">
     Turn outdoor lights {{light && 'off' || 'on'}}
   </button>
 <span class="fa-stack fa-2x" style="color:{{bulb}}" >
@@ -24,7 +24,7 @@
 </div>
 
 <div class="container">
-  <button id="allDoors" type="button"
+  <button id="lockAllDoors" type="button"
     ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockAll]"
     ng-click="lockDoors('allDoors')">
       {{lockAll && 'Lock' || 'Unlock'}} all doors
@@ -44,27 +44,35 @@
 </div>
 
 <div class="container">
-  <button id="roomTempAll" type="button"
+  <button id="overrideRoomTemp" type="button"
+  ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[overrideTemp]"
+  ng-click="overrideTemp = !overrideTemp">
+    Room temperature override
+  </button>
+  <div class="btn-group-vertical">
+    <button id="temperatureUp" type="button"
+    class="btn btn-default btn-xs"
+    ng-click="heater(true)"
+    ng-disabled="{true: true, false: false}[overrideTemp]">
+      <span class="fa fa-chevron-up" aria-hidden="true"></span>
+    </button>
+    <button id="temperatureDown" type="button"
+    class="btn btn-default btn-xs"
+    ng-click="heater(false)"
+    ng-disabled="{true: true, false: false}[overrideTemp]">
+      <span class="fa fa-chevron-down" aria-hidden="true"></span>
+    </button>
+  </div>
+<span class="infovalue"> {{temperatureHouse}} &#8451</span>
+</div>
+
+<!-- <div class="container">
+  <button id="roomLightAll" type="button"
   ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[override]"
   ng-click="override = !override">
     Room temperature override
   </button>
-  <div class="btn-group-vertical">
-    <button id="tempUp" type="button"
-    class="btn btn-default btn-xs"
-    ng-click="tempOverride(true)"
-    ng-disabled="{true: true, false: false}[override]">
-      <span class="fa fa-chevron-up" aria-hidden="true"></span>
-    </button>
-    <button id="tempDown" type="button"
-    class="btn btn-default btn-xs"
-    ng-click="tempOverride(false)"
-    ng-disabled="{true: true, false: false}[override]">
-      <span class="fa fa-chevron-down" aria-hidden="true"></span>
-    </button>
-  </div>
-<span class="infovalue"> {{temperature_override}} &#8451</span>
-</div>
+</div> -->
 
 <p> Alerts: </p>
 <!-- TODO: alerts needed to handle-->
