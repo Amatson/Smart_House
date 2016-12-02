@@ -3,28 +3,28 @@
 
   <p>Room temperature:
     <span class="fa fa-thermometer-half fa-lg" style="color:red" aria-hidden="true"></span>
-    <span class="infovalue"> {{temperatureMainroom}} &#8451 </span>
+    <span class="infovalue"> {{roomTemperature}} &#8451 </span>
   </p>
 
   <p>Room humidity:
     <span class="fa fa-tint fa-lg" style="color:blue" aria-hidden="true"></span>
-    <span class="infovalue"> {{humidityMainroom}} % </span>
+    <span class="infovalue"> {{roomHumidity}} % </span>
   </p>
 </div>
 
 <div class="allParts">
-  <button id="turnMainroomLights" type="button"
+  <button id="toggleRoomLights" type="button"
     class="btn btn-primary"
-    ng-click="turnMainroomLights()"
+    ng-click="toggleRoomLights()"
     ng-hide="!overrideLight">
-    Turn room lights {{lightMainroom && 'off' || 'on'}}
+    Turn room lights {{roomLights && 'off' || 'on'}}
   </button>
   <span ng-hide="overrideLight">Lighting override is ON</span>
 <span class="fa-stack fa-2x">
   <!-- <i class="fa fa-sun-o fa-stack-2x"></i> -->
-  <i class="fa fa-sun-o fa-stack-2x" style="color:#ffcc00" ng-hide="!lightMainroom || !overrideLight"></i>
-  <i class="fa fa-lightbulb-o fa-stack-1x" style="color:#ffcc00" ng-hide="!lightMainroom || !overrideLight"></i>
-  <i class="fa fa-lightbulb-o fa-stack-1x" ng-hide="lightMainroom && overrideLight"></i>
+  <i class="fa fa-sun-o fa-stack-2x" style="color:#ffcc00" ng-hide="!roomLights || !overrideLight"></i>
+  <i class="fa fa-lightbulb-o fa-stack-1x" style="color:#ffcc00" ng-hide="!roomLights || !overrideLight"></i>
+  <i class="fa fa-lightbulb-o fa-stack-1x" ng-hide="roomLights && overrideLight"></i>
 </span>
 </div>
 
@@ -45,7 +45,7 @@
         <span class="fa fa-chevron-down" aria-hidden="true"></span>
     </button>
   </div>
-  <span class="infovalue"> {{!overrideTemp && temperatureHouse || temperatureMainroomSet}} &#8451</span>
+  <span class="infovalue"> {{!overrideTemp && temperatureHouse || roomTemperatureSet}} &#8451</span>
 </div>
 
 
