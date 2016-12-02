@@ -1,11 +1,20 @@
 /* app css stylesheet */
+.body-style {
+  background-color: #345939;
+  color: white;
+}
+
 .infovalue {
   border: 1px solid;
   padding: 2px;
-  background-color: #e6e6e6;
+  background-color: #234;
 }
 
-.hurdur {
-  margin: 1em;
+.allParts {
+  margin : 1em;
   /*float: left;*/
+}
+
+.houseInfo {
+
 }

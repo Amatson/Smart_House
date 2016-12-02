@@ -1,4 +1,4 @@
-<div class="hurdur">
+<div class="allParts houseInfo">
   <p>This is the partial for home.</p>
   <p>Outside temperature:
     <span class="fa fa-thermometer-half fa-lg" style="color:red" aria-hidden="true"></span>
@@ -10,7 +10,7 @@
   </p>
 </div>
 
-<div class="hurdur">
+<div class="allParts">
   <button id="turnOutdoorLights" type="button"
     class="btn btn-primary"
     ng-click="turnOutdoorLights()">
@@ -23,7 +23,7 @@
 </span>
 </div>
 
-<div class="hurdur">
+<div class="allParts">
   <button id="lockAllDoors" type="button"
     ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockAll]"
     ng-click="lockDoors('allDoors')">
@@ -43,30 +43,32 @@
   </div>
 </div>
 
-<div class="hurdur">
+<div class="allParts">
   <button id="overrideRoomTemp" type="button"
   ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[overrideTemp]"
   ng-click="toggleOverrideTemp()">
-    Room temperature override
+    Room temperature override: {{overrideTemp && 'Off' || 'On'}}
   </button>
   <div class="btn-group-vertical">
     <button id="temperatureUp" type="button"
     class="btn btn-default btn-xs"
     ng-click="heater(true)"
-    ng-disabled="{true: true, false: false}[overrideTemp]">
+    ng-disabled="{true: true, false: false}[overrideTemp]"
+    ng-hide="overrideTemp">
       <span class="fa fa-chevron-up" aria-hidden="true"></span>
     </button>
     <button id="temperatureDown" type="button"
     class="btn btn-default btn-xs"
     ng-click="heater(false)"
-    ng-disabled="{true: true, false: false}[overrideTemp]">
+    ng-disabled="{true: true, false: false}[overrideTemp]"
+    ng-hide="overrideTemp">
       <span class="fa fa-chevron-down" aria-hidden="true"></span>
     </button>
   </div>
-<span class="infovalue"> {{temperatureHouse}} &#8451</span>
+<span class="infovalue" ng-hide="overrideTemp"> {{temperatureHouse}} &#8451</span>
 </div>
 
-<!-- <div class="hurdur">
+<!-- <div class="allParts">
   <button id="roomLightAll" type="button"
   ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[override]"
   ng-click="override = !override">
@@ -74,7 +76,7 @@
   </button>
 </div> -->
 
-<div class="hurdur">
+<div class="allParts">
   <p> Alerts: </p>
   <!-- TODO: alerts needed to handle-->
 </div>
