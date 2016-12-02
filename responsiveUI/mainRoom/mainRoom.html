@@ -1,50 +1,74 @@
-<p>This is the partial for main room.</p>
+<div class="hurdur">
+  <p>This is the partial for Main room.</p>
 
-<p>Temperature:
-  <span class="fa fa-thermometer-half fa-lg" style="color:red" aria-hidden="true"></span>
-  <span class="infovalue"> {{temperature_mainRoom}} &#8451 </span>
-</p>
+  <p>Room temperature:
+    <span class="fa fa-thermometer-half fa-lg" style="color:red" aria-hidden="true"></span>
+    <span class="infovalue"> {{temperatureMainroom}} &#8451 </span>
+  </p>
 
-<p>Outside humidity:
-  <span class="fa fa-tint fa-lg" style="color:blue" aria-hidden="true"></span>
-  <span class="infovalue"> {{humidity_mainRoom}} % </span>
-</p>
+  <p>Room humidity:
+    <span class="fa fa-tint fa-lg" style="color:blue" aria-hidden="true"></span>
+    <span class="infovalue"> {{humidityMainroom}} % </span>
+  </p>
+</div>
 
-<div class="container">
-  <button id="turnLights_mainRoom" type="button"
+<div class="hurdur">
+  <button id="turnMainroomLights" type="button"
     class="btn btn-primary"
-    ng-click="turnLights()">
-    Turn lights {{light && 'off' || 'on'}}
+    ng-click="turnMainroomLights()">
+    Turn room lights {{lightMainroom && 'off' || 'on'}}
   </button>
-<span class="fa-stack fa-2x" style="color:{{bulb}}" >
+<span class="fa-stack fa-2x" style="color:{{bulbMainroom}}" >
   <!-- <i class="fa fa-sun-o fa-stack-2x"></i> -->
-  <i class="fa fa-sun-o fa-stack-2x ng-hide" ng-hide="!light"></i>
+  <i class="fa fa-sun-o fa-stack-2x ng-hide" ng-hide="!lightMainroom"></i>
   <i class="fa fa-lightbulb-o fa-stack-1x"></i>
 </span>
 </div>
 
-<div class="container">
-  <button id="roomTemp_mainRoom" type="button"
-  ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[override]"
-  ng-click="override = !override">
-    Room temperature override
+<div class="hurdur">
+  Set room temperature
+  <div class="btn-group-vertical">
+    <button id="temperatureUpMainroom" type="button"
+      class="btn btn-default btn-xs"
+      ng-click="heater(true)"
+      ng-disabled="{true: true, false: false}[!overrideTemp]">
+        <span class="fa fa-chevron-up" aria-hidden="true"></span>
+    </button>
+    <button id="temperatureDownMainroom" type="button"
+      class="btn btn-default btn-xs"
+      ng-click="heater(false)"
+      ng-disabled="{true: true, false: false}[!overrideTemp]">
+        <span class="fa fa-chevron-down" aria-hidden="true"></span>
+    </button>
+  </div>
+  <span class="infovalue"> {{!overrideTemp && temperatureHouse || temperatureMainroomSet}} &#8451</span>
+</div>
+
+<!-- <div class="hurdur">
+  <button id="overrideRoomTemp" type="button"
+  ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[overrideTemp]"
+  ng-click="toggleOverrideTemp()">
+    Room temperature
   </button>
   <div class="btn-group-vertical">
-    <button id="tempUp_mainRoom" type="button"
+    <button id="temperatureUp" type="button"
     class="btn btn-default btn-xs"
-    ng-click="tempOverride(true)"
-    ng-disabled="{true: true, false: false}[override]">
+    ng-click="heater(true)"
+    ng-disabled="{true: true, false: false}[overrideTemp]">
       <span class="fa fa-chevron-up" aria-hidden="true"></span>
     </button>
-    <button id="tempDown_mainRoom" type="button"
+    <button id="temperatureDown" type="button"
     class="btn btn-default btn-xs"
-    ng-click="tempOverride(false)"
-    ng-disabled="{true: true, false: false}[override]">
+    ng-click="heater(false)"
+    ng-disabled="{true: true, false: false}[overrideTemp]">
       <span class="fa fa-chevron-down" aria-hidden="true"></span>
     </button>
   </div>
-<span class="infovalue"> {{temperature_override}} &#8451</span>
-</div>
+<span class="infovalue"> {{temperatureHouse}} &#8451</span>
+</div> -->
 
-<p> Alerts: </p>
-<!-- TODO: alerts needed to handle-->
+
+<div class="hurdur">
+  <p> Alerts: </p>
+  <!-- TODO: alerts needed to handle-->
+</div>

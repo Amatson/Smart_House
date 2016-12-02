@@ -23,6 +23,12 @@ angular.module('smartHouseApp', [
       lockBack: true,
       lockAll: true,
       overrideTemp: true,
-      temperatureHouse: 22
+      temperatureHouse: 22,
+
+      temperatureMainroom: 22,
+      temperatureMainroomSet: 22,
+      humidityMainroom: 40,
+      bulbMainroom: "black",
+      lightMainroom: false
   };
 });

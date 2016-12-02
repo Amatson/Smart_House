@@ -9,48 +9,35 @@ angular.module('smartHouseApp.mainRoom', ['ngRoute'])
   });
 }])
 
-.controller('MainRoomCtrl', [function() {
-  $scope.temperature_out = 16;
-  $scope.humidity_out = 70;
+.controller('MainRoomCtrl',['$scope', 'GlobalVariables', function($scope, GlobalVariables){
+  $scope.updateScope = function() {
+    $scope.temperatureMainroom = GlobalVariables.temperatureMainroom;
+    $scope.humidityMainroom = GlobalVariables.humidityMainroom;
 
-  $scope.bulb = "bulb_off.png"
-  $scope.light = false;
+    $scope.bulbMainroom = GlobalVariables.bulbMainroom;
+    $scope.lightMainroom = GlobalVariables.lightMainroom;
 
-  $scope.lockFront = true;
-  $scope.lockBack = true;
-  $scope.lockAll = true;
-
-  $scope.override = true;
-  $scope.tempUpClass = "btn btn-default btn-xs disabled";
-  $scope.temperature_override = 22;
-
-  $scope.turnLights = function() {
-    $scope.light = ($scope.light) ? (false) : (true);
-    $scope.bulb = ($scope.light) ? ("#ffcc00") : ("black");
-  //  $scope.bulb = ($scope.light) ? ("#ffcc00") : ("black");
+    $scope.overrideTemp = GlobalVariables.overrideTemp;
+    $scope.temperatureHouse = GlobalVariables.temperatureHouse;
+    $scope.temperatureMainroomSet = GlobalVariables.temperatureMainroomSet;
   }
 
-  $scope.lockDoors = function(door) {
-    if(door == "allDoors") {
-        $scope.lockFront = !$scope.lockAll;
-        $scope.lockBack = !$scope.lockAll;
-    }
-    else if(door == "frontDoor") {
-      $scope.lockFront = !$scope.lockFront;
-    }
-    else if(door == "backDoor") {
-      $scope.lockBack = !$scope.lockBack;
-      }
-    $scope.lockAll = $scope.lockBack && $scope.lockFront;
-    }
+  $scope.updateScope();
 
-    $scope.tempOverride = function(up) {
+  $scope.turnMainroomLights = function() {
+    GlobalVariables.lightMainroom = (GlobalVariables.lightMainroom) ? (false) : (true);
+    GlobalVariables.bulbMainroom = (GlobalVariables.lightMainroom) ? ("#ffcc00") : ("black");
+    $scope.updateScope();
+  }
+
+    $scope.heater = function(up) {
       if(up){
-        $scope.temperature_override += 1;
+        GlobalVariables.temperatureMainroomSet += 1;
       }
       else {
-        $scope.temperature_override -= 1;
+        GlobalVariables.temperatureMainroomSet -= 1;
       }
+      $scope.updateScope();
     }
 
 }]);
