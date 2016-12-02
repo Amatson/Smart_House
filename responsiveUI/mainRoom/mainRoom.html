@@ -14,7 +14,7 @@
 
 <div class="allParts">
   <button type="button"
-    class="btn btn-primary"
+    ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[!roomLights]"
     ng-click="toggleRoomLights()"
     ng-hide="!overrideLight">
     Turn room lights {{roomLights && 'off' || 'on'}}

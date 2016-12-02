@@ -32,7 +32,7 @@
 
 <div class="allParts">
   <button id="turnOutdoorLights" type="button"
-    class="btn btn-primary"
+    ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[!light]"
     ng-click="turnOutdoorLights()">
     Turn outdoor lights {{light && 'off' || 'on'}}
   </button>
