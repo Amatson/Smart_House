@@ -12,4 +12,9 @@ angular.module('smartHouseApp', [
   $locationProvider.hashPrefix('!');
 
   $routeProvider.otherwise({redirectTo: '/home'});
-}]);
+}])
+.factory('GlobalVariables', function() {
+  return {
+      name : 'anonymous'
+  };
+;
