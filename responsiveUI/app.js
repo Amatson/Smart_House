@@ -27,9 +27,19 @@ angular.module('smartHouseApp', [
       overrideLight: true,
       alerts: "No alerts",
 
-      temperatureMainroom: 22,
+      temperatureMainroom: 21,
       temperatureMainroomSet: 22,
-      humidityMainroom: 40,
-      lightMainroom: false
+      humidityMainroom: 42,
+      lightMainroom: false,
+
+      temperatureLivingroom: 22,
+      temperatureLivingroomSet: 22,
+      humidityLivingroom: 40,
+      lightLivingroom: false,
+
+      temperatureBedroom: 20,
+      temperatureBedroomSet: 23,
+      humidityBedroom: 39,
+      lightBedroom: false
   };
 });

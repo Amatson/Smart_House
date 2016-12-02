@@ -9,6 +9,36 @@ angular.module('smartHouseApp.bedRoom', ['ngRoute'])
   });
 }])
 
-.controller('BedRoomCtrl', [function() {
+.controller('BedRoomCtrl',['$scope', 'GlobalVariables', function($scope, GlobalVariables){
+  $scope.updateScope = function() {
+    $scope.roomTemperature = GlobalVariables.temperatureBedroom;
+    $scope.roomHumidity = GlobalVariables.humidityBedroom;
+
+    $scope.roomLights = GlobalVariables.lightBedroom;
+
+    $scope.overrideTemp = GlobalVariables.overrideTemp;
+    $scope.temperatureHouse = GlobalVariables.temperatureHouse;
+    $scope.roomTemperatureSet = GlobalVariables.temperatureBedroomSet;
+
+    $scope.alerts = GlobalVariables.alerts;
+    $scope.overrideLight = GlobalVariables.overrideLight;
+  }
+
+  $scope.updateScope();
+
+  $scope.toggleRoomLights = function() {
+    GlobalVariables.lightBedroom = (GlobalVariables.lightBedroom) ? (false) : (true);
+    $scope.updateScope();
+  }
+
+    $scope.heater = function(up) {
+      if(up){
+        GlobalVariables.temperatureBedroomSet += 1;
+      }
+      else {
+        GlobalVariables.temperatureBedroomSet -= 1;
+      }
+      $scope.updateScope();
+    }
 
 }]);
