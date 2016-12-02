@@ -15,6 +15,14 @@ angular.module('smartHouseApp', [
 }])
 .factory('GlobalVariables', function() {
   return {
-      
+      temperatureOut: 16,
+      humidityOut: 60,
+      bulb: "black",
+      light: false,
+      lockFront: true,
+      lockBack: true,
+      lockAll: true,
+      overrideTemp: true,
+      temperatureHouse: 22
   };
 });

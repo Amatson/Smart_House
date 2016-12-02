@@ -9,48 +9,60 @@ angular.module('smartHouseApp.home', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl',['$scope', function($scope){
+.controller('HomeCtrl',['$scope', 'GlobalVariables', function($scope, GlobalVariables){
 
-  $scope.temperatureOut = 16;
-  $scope.humidityOut = 70;
+  $scope.updateScope = function() {
+    $scope.temperatureOut = GlobalVariables.temperatureOut;
+    $scope.humidityOut = GlobalVariables.humidityOut;
 
-  $scope.bulb = "black"
-  $scope.light = false;
+    $scope.bulb = GlobalVariables.bulb;
+    $scope.light = GlobalVariables.light;
 
-  $scope.lockFront = true;
-  $scope.lockBack = true;
-  $scope.lockAll = true;
+    $scope.lockFront = GlobalVariables.lockFront;
+    $scope.lockBack = GlobalVariables.lockBack;
+    $scope.lockAll = GlobalVariables.lockAll;
 
-  $scope.overrideTemp = true;
-  $scope.temperatureHouse = 22;
+    $scope.overrideTemp = GlobalVariables.overrideTemp;
+    $scope.temperatureHouse = GlobalVariables.temperatureHouse;
+  }
+
+  $scope.updateScope();
 
   $scope.turnOutdoorLights = function() {
-    $scope.light = ($scope.light) ? (false) : (true);
-    $scope.bulb = ($scope.light) ? ("#ffcc00") : ("black");
+    GlobalVariables.light = (GlobalVariables.light) ? (false) : (true);
+    GlobalVariables.bulb = (GlobalVariables.light) ? ("#ffcc00") : ("black");
   //  $scope.bulb = ($scope.light) ? ("#ffcc00") : ("black");
+    $scope.updateScope();
   }
 
   $scope.lockDoors = function(door) {
     if(door == "allDoors") {
-        $scope.lockFront = !$scope.lockAll;
-        $scope.lockBack = !$scope.lockAll;
+        GlobalVariables.lockFront = !GlobalVariables.lockAll;
+        GlobalVariables.lockBack = !GlobalVariables.lockAll;
     }
     else if(door == "frontDoor") {
-      $scope.lockFront = !$scope.lockFront;
+      GlobalVariables.lockFront = !GlobalVariables.lockFront;
     }
     else if(door == "backDoor") {
-      $scope.lockBack = !$scope.lockBack;
+      GlobalVariables.lockBack = !GlobalVariables.lockBack;
       }
-    $scope.lockAll = $scope.lockBack && $scope.lockFront;
+    GlobalVariables.lockAll = GlobalVariables.lockBack && GlobalVariables.lockFront;
+    $scope.updateScope();
     }
 
     $scope.heater = function(up) {
       if(up){
-        $scope.temperatureHouse += 1;
+        GlobalVariables.temperatureHouse += 1;
       }
       else {
-        $scope.temperatureHouse -= 1;
+        GlobalVariables.temperatureHouse -= 1;
       }
+      $scope.updateScope();
+    }
+
+    $scope.toggleOverrideTemp = function() {
+      GlobalVariables.overrideTemp = !GlobalVariables.overrideTemp;
+      $scope.updateScope();
     }
 
 }]);
