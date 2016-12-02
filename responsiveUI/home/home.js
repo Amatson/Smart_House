@@ -11,16 +11,24 @@ angular.module('smartHouseApp.home', ['ngRoute'])
 
 .controller('HomeCtrl',['$scope', function($scope){
 
+  $scope.temperature_out = 16;
+  $scope.humidity_out = 70;
+
   $scope.bulb = "bulb_off.png"
   $scope.light = false;
+
   $scope.lockFront = true;
   $scope.lockBack = true;
   $scope.lockAll = true;
 
+  $scope.override = true;
+  $scope.tempUpClass = "btn btn-default btn-xs disabled";
+  $scope.temperature_override = 22;
 
   $scope.turnLights = function() {
     $scope.light = ($scope.light) ? (false) : (true);
-    $scope.bulb = ($scope.light) ? ("bulb_on.png") : ("bulb_off.png");
+  //  $scope.bulb = ($scope.light) ? ("bulb_on.png") : ("bulb_off.png");
+    $scope.bulb = ($scope.light) ? ("#ffcc00") : ("black");
   }
 
   $scope.lockDoors = function(door) {
@@ -35,6 +43,15 @@ angular.module('smartHouseApp.home', ['ngRoute'])
       $scope.lockBack = !$scope.lockBack;
       }
     $scope.lockAll = $scope.lockBack && $scope.lockFront;
+    }
+
+    $scope.tempOverride = function(up) {
+      if(up){
+        $scope.temperature_override += 1;
+      }
+      else {
+        $scope.temperature_override -= 1;
+      }
     }
 
 }]);

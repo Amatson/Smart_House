@@ -1,1 +1,9 @@
 /* app css stylesheet */
+.infovalue {
+  border: 1px solid;
+  padding: 2px;
+}
+
+.container {
+  margin: 1em;
+}
