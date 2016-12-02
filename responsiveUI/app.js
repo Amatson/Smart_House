@@ -15,6 +15,6 @@ angular.module('smartHouseApp', [
 }])
 .factory('GlobalVariables', function() {
   return {
-      name : 'anonymous'
+      
   };
-;
+});
