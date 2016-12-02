@@ -19,11 +19,12 @@
     ng-hide="!overrideLight">
     Turn room lights {{lightMainroom && 'off' || 'on'}}
   </button>
-  <span ng-hide="overrideLight"> hurr durr</span>
-<span class="fa-stack fa-2x" style="color:{{bulbMainroom}}" >
+  <span ng-hide="overrideLight">Lighting override is ON</span>
+<span class="fa-stack fa-2x">
   <!-- <i class="fa fa-sun-o fa-stack-2x"></i> -->
-  <i class="fa fa-sun-o fa-stack-2x ng-hide" ng-hide="!lightMainroom"></i>
-  <i class="fa fa-lightbulb-o fa-stack-1x"></i>
+  <i class="fa fa-sun-o fa-stack-2x" style="color:#ffcc00" ng-hide="!lightMainroom || !overrideLight"></i>
+  <i class="fa fa-lightbulb-o fa-stack-1x" style="color:#ffcc00" ng-hide="!lightMainroom || !overrideLight"></i>
+  <i class="fa fa-lightbulb-o fa-stack-1x" ng-hide="lightMainroom && overrideLight"></i>
 </span>
 </div>
 

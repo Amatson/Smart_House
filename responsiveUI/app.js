@@ -30,7 +30,6 @@ angular.module('smartHouseApp', [
       temperatureMainroom: 22,
       temperatureMainroomSet: 22,
       humidityMainroom: 40,
-      bulbMainroom: "white",
       lightMainroom: false
   };
 });

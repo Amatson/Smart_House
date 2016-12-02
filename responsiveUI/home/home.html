@@ -1,5 +1,5 @@
 <div class="allParts houseInfo">
-  <p>This is the partial for home.</p>
+  <h2>Smart House Home</h2>
   <p>Outside temperature:
     <span class="fa fa-thermometer-half fa-lg" style="color:red" aria-hidden="true"></span>
     <span class="infovalue"> {{temperatureOut}} &#8451 </span>
@@ -8,19 +8,6 @@
     <span class="fa fa-tint fa-lg" style="color:blue" aria-hidden="true"></span>
     <span class="infovalue"> {{humidityOut}} % </span>
   </p>
-</div>
-
-<div class="allParts">
-  <button id="turnOutdoorLights" type="button"
-    class="btn btn-primary"
-    ng-click="turnOutdoorLights()">
-    Turn outdoor lights {{light && 'off' || 'on'}}
-  </button>
-<span class="fa-stack fa-2x" style="color:{{bulb}}" >
-  <!-- <i class="fa fa-sun-o fa-stack-2x"></i> -->
-  <i class="fa fa-sun-o fa-stack-2x ng-hide" ng-hide="!light"></i>
-  <i class="fa fa-lightbulb-o fa-stack-1x"></i>
-</span>
 </div>
 
 <div class="allParts">
@@ -44,10 +31,35 @@
 </div>
 
 <div class="allParts">
+  <button id="turnOutdoorLights" type="button"
+    class="btn btn-primary"
+    ng-click="turnOutdoorLights()">
+    Turn outdoor lights {{light && 'off' || 'on'}}
+  </button>
+<span class="fa-stack fa-2x" style="color:{{bulb}}" >
+  <!-- <i class="fa fa-sun-o fa-stack-2x"></i> -->
+  <i class="fa fa-sun-o fa-stack-2x ng-hide" ng-hide="!light"></i>
+  <i class="fa fa-lightbulb-o fa-stack-1x"></i>
+</span>
+</div>
+
+<div class="allParts">
+  <button id="overrideRoomLighting" type="button"
+  ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[overrideLight]"
+  ng-click="toggleOverrideLight()">
+  Room lighting override: {{overrideLight && 'OFF' || 'ON'}}
+</button>
+<span class="fa-stack fa-2x">
+  <!-- <i class="fa fa-sun-o fa-stack-2x"></i> -->
+  <i class="fa fa-ban text-danger fa-stack-2x ng-hide" ng-hide="overrideLight"></i>
+  <i class="fa fa-lightbulb-o fa-stack-1x ng-hide" ng-hide="overrideLight"></i>
+</div>
+
+<div class="allParts">
   <button id="overrideRoomTemp" type="button"
   ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[overrideTemp]"
   ng-click="toggleOverrideTemp()">
-    Room temperature override: {{overrideTemp && 'Off' || 'On'}}
+    Room temperature override: {{overrideTemp && 'OFF' || 'ON'}}
   </button>
   <div class="btn-group-vertical">
     <button id="temperatureUp" type="button"
@@ -66,18 +78,6 @@
     </button>
   </div>
 <span class="infovalue" ng-hide="overrideTemp"> {{temperatureHouse}} &#8451</span>
-</div>
-
-<div class="allParts">
-  <button id="overrideRoomLighting" type="button"
-  ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[overrideLight]"
-  ng-click="toggleOverrideLight()">
-  {{overrideLight && 'Turn off room lights' || 'Return previous lighting'}}
-</button>
-<span class="fa-stack fa-2x">
-  <!-- <i class="fa fa-sun-o fa-stack-2x"></i> -->
-  <i class="fa fa-ban text-danger fa-stack-2x ng-hide" ng-hide="overrideLight"></i>
-  <i class="fa fa-lightbulb-o fa-stack-1x ng-hide" ng-hide="overrideLight"></i>
 </div>
 
 <div class="allParts">
