@@ -10,24 +10,15 @@
   <span class="infovalue"> {{humidity_out}} % </span>
 </p>
 
-
-<div class="container">
-  <button id="lockAllDoors" name="open" type="button"
-  ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[!doorsLocked]"
-  ng-click="doorsLocked = !doorsLocked" onclick = "lockDoors(this.name)">
-  {{!doorsLocked && 'Lock' || 'Unlock'}} all doors
-</button>
-</div>
-
 <div class="container">
   <button id="turnLights" type="button"
     class="btn btn-primary"
     ng-click="turnLights()">
-    Turn lights {{light && 'off' || 'on'}}
+    Turn outdoor lights {{light && 'off' || 'on'}}
   </button>
 <span class="fa-stack fa-2x" style="color:{{bulb}}" >
-  <i class="fa fa-sun-o fa-stack-2x"></i>
-  <!--<i class="fa fa-sun-o fa-stack-2x ng-hide" ng-hide="!light"></i>-->
+  <!-- <i class="fa fa-sun-o fa-stack-2x"></i> -->
+  <i class="fa fa-sun-o fa-stack-2x ng-hide" ng-hide="!light"></i>
   <i class="fa fa-lightbulb-o fa-stack-1x"></i>
 </span>
 </div>
@@ -74,3 +65,6 @@
   </div>
 <span class="infovalue"> {{temperature_override}} &#8451</span>
 </div>
+
+<p> Alerts: </p>
+<!-- TODO: alerts needed to handle-->
