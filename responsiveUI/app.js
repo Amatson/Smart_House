@@ -17,18 +17,20 @@ angular.module('smartHouseApp', [
   return {
       temperatureOut: 16,
       humidityOut: 60,
-      bulb: "black",
+      bulb: "white",
       light: false,
       lockFront: true,
       lockBack: true,
       lockAll: true,
       overrideTemp: true,
       temperatureHouse: 22,
+      overrideLight: true,
+      alerts: "No alerts",
 
       temperatureMainroom: 22,
       temperatureMainroomSet: 22,
       humidityMainroom: 40,
-      bulbMainroom: "black",
+      bulbMainroom: "white",
       lightMainroom: false
   };
 });

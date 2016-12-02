@@ -20,13 +20,16 @@ angular.module('smartHouseApp.mainRoom', ['ngRoute'])
     $scope.overrideTemp = GlobalVariables.overrideTemp;
     $scope.temperatureHouse = GlobalVariables.temperatureHouse;
     $scope.temperatureMainroomSet = GlobalVariables.temperatureMainroomSet;
+
+    $scope.alerts = GlobalVariables.alerts;
+    $scope.overrideLight = GlobalVariables.overrideLight;
   }
 
   $scope.updateScope();
 
   $scope.turnMainroomLights = function() {
     GlobalVariables.lightMainroom = (GlobalVariables.lightMainroom) ? (false) : (true);
-    GlobalVariables.bulbMainroom = (GlobalVariables.lightMainroom) ? ("#ffcc00") : ("black");
+    GlobalVariables.bulbMainroom = (GlobalVariables.lightMainroom) ? ("#ffcc00") : ("white");
     $scope.updateScope();
   }
 

@@ -15,9 +15,11 @@
 <div class="allParts">
   <button id="turnMainroomLights" type="button"
     class="btn btn-primary"
-    ng-click="turnMainroomLights()">
+    ng-click="turnMainroomLights()"
+    ng-hide="!overrideLight">
     Turn room lights {{lightMainroom && 'off' || 'on'}}
   </button>
+  <span ng-hide="overrideLight"> hurr durr</span>
 <span class="fa-stack fa-2x" style="color:{{bulbMainroom}}" >
   <!-- <i class="fa fa-sun-o fa-stack-2x"></i> -->
   <i class="fa fa-sun-o fa-stack-2x ng-hide" ng-hide="!lightMainroom"></i>
@@ -47,6 +49,5 @@
 
 
 <div class="allParts">
-  <p> Alerts: </p>
-  <!-- TODO: alerts needed to handle-->
+  Alerts: <span class="label label-success">{{alerts}}</span>
 </div>

@@ -71,14 +71,15 @@
 <div class="allParts">
   <button id="overrideRoomLighting" type="button"
   ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[overrideLight]"
-  ng-click="toggleOverrideLight()"
-
-  >
-
+  ng-click="toggleOverrideLight()">
+  {{overrideLight && 'Turn off room lights' || 'Return previous lighting'}}
 </button>
+<span class="fa-stack fa-2x">
+  <!-- <i class="fa fa-sun-o fa-stack-2x"></i> -->
+  <i class="fa fa-ban text-danger fa-stack-2x ng-hide" ng-hide="overrideLight"></i>
+  <i class="fa fa-lightbulb-o fa-stack-1x ng-hide" ng-hide="overrideLight"></i>
 </div>
 
 <div class="allParts">
-  <p> Alerts: </p>
-  <!-- TODO: alerts needed to handle-->
+  Alerts: <span class="label label-success">{{alerts}}</span>
 </div>
