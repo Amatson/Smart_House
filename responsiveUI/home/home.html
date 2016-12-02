@@ -68,13 +68,15 @@
 <span class="infovalue" ng-hide="overrideTemp"> {{temperatureHouse}} &#8451</span>
 </div>
 
-<!-- <div class="allParts">
-  <button id="roomLightAll" type="button"
-  ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[override]"
-  ng-click="override = !override">
-    Room temperature override
-  </button>
-</div> -->
+<div class="allParts">
+  <button id="overrideRoomLighting" type="button"
+  ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[overrideLight]"
+  ng-click="toggleOverrideLight()"
+
+  >
+
+</button>
+</div>
 
 <div class="allParts">
   <p> Alerts: </p>
