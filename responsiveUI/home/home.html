@@ -1,16 +1,16 @@
-<p>This is the partial for home.</p>
+<div class="hurdur">
+  <p>This is the partial for home.</p>
+  <p>Outside temperature:
+    <span class="fa fa-thermometer-half fa-lg" style="color:red" aria-hidden="true"></span>
+    <span class="infovalue"> {{temperatureOut}} &#8451 </span>
+  </p>
+  <p>Outside humidity:
+    <span class="fa fa-tint fa-lg" style="color:blue" aria-hidden="true"></span>
+    <span class="infovalue"> {{humidityOut}} % </span>
+  </p>
+</div>
 
-<p>Outside temperature:
-  <span class="fa fa-thermometer-half fa-lg" style="color:red" aria-hidden="true"></span>
-  <span class="infovalue"> {{temperatureOut}} &#8451 </span>
-</p>
-
-<p>Outside humidity:
-  <span class="fa fa-tint fa-lg" style="color:blue" aria-hidden="true"></span>
-  <span class="infovalue"> {{humidityOut}} % </span>
-</p>
-
-<div class="container">
+<div class="hurdur">
   <button id="turnOutdoorLights" type="button"
     class="btn btn-primary"
     ng-click="turnOutdoorLights()">
@@ -23,7 +23,7 @@
 </span>
 </div>
 
-<div class="container">
+<div class="hurdur">
   <button id="lockAllDoors" type="button"
     ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[lockAll]"
     ng-click="lockDoors('allDoors')">
@@ -43,7 +43,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="hurdur">
   <button id="overrideRoomTemp" type="button"
   ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[overrideTemp]"
   ng-click="overrideTemp = !overrideTemp">
@@ -66,7 +66,7 @@
 <span class="infovalue"> {{temperatureHouse}} &#8451</span>
 </div>
 
-<!-- <div class="container">
+<!-- <div class="hurdur">
   <button id="roomLightAll" type="button"
   ng-class="{true: 'btn btn-primary', false: 'btn btn-danger'}[override]"
   ng-click="override = !override">
@@ -74,5 +74,7 @@
   </button>
 </div> -->
 
-<p> Alerts: </p>
-<!-- TODO: alerts needed to handle-->
+<div class="hurdur">
+  <p> Alerts: </p>
+  <!-- TODO: alerts needed to handle-->
+</div>
