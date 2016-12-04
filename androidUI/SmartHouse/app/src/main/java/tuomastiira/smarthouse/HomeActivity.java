@@ -6,13 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private int outsideTemperature = 16;
-    private int outsideHumidity = 40;
     private ToggleButton allDoors;
     private ToggleButton frontDoor;
     private ToggleButton backDoor;
@@ -61,11 +58,6 @@ public class HomeActivity extends AppCompatActivity {
             }
 
         });
-
-        TextView outsideTemperatureView = (TextView) findViewById(R.id.outsideTemperatureView);
-        outsideTemperatureView.setText(String.valueOf(outsideTemperature));
-        TextView outsideHumidityView = (TextView) findViewById(R.id.outsideHumidityView);
-        outsideHumidityView.setText(String.valueOf(outsideHumidity));
 
         allDoors = (ToggleButton) findViewById(R.id.allDoorsButton);
         allDoors.setOnClickListener(new ToggleButton.OnClickListener() {

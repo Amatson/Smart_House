@@ -1,15 +1,21 @@
 package tuomastiira.smarthouse;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class MainRoomActivity extends AppCompatActivity {
 
     private Spinner spinner;
+    private int temperatureSet = 21;
+    private Button temperatureUp;
+    private Button temperatureDown;
+    private TextView temperatureView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,26 @@ public class MainRoomActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
                 // pass
+            }
+        });
+
+        temperatureView = (TextView) findViewById(R.id.mainroomTemperatureSet);
+        temperatureView.setText(String.valueOf(temperatureSet) + ' ');
+
+        temperatureUp = (Button) findViewById(R.id.mainroomTemperatureUpButton);
+        temperatureUp.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                temperatureSet += 1;
+                temperatureView.setText(String.valueOf(temperatureSet) + ' ');
+            }
+        });
+        temperatureDown = (Button) findViewById(R.id.mainroomTemperatureDownButton);
+        temperatureDown.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                temperatureSet -= 1;
+                temperatureView.setText(String.valueOf(temperatureSet) + ' ');
             }
         });
     }
