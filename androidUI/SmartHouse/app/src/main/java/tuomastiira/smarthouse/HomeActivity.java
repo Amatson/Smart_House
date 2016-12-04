@@ -10,6 +10,8 @@ import android.widget.ToggleButton;
 
 public class HomeActivity extends AppCompatActivity {
 
+    public static boolean roomLightingOverrided = false;
+
     private ToggleButton allDoors;
     private ToggleButton frontDoor;
     private ToggleButton backDoor;
@@ -113,9 +115,6 @@ public class HomeActivity extends AppCompatActivity {
 
     private void toggleRoomLightingOverride() {
         roomLightingOverride.setChecked(roomLightingOverride.isChecked());
-    }
-
-    public boolean getRoomLightingOverrideState() {
-        return roomLightingOverride.isChecked();
+        roomLightingOverrided = roomLightingOverride.isChecked();
     }
 }

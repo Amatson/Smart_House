@@ -8,10 +8,13 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class MainRoomActivity extends AppCompatActivity {
 
     private Spinner spinner;
+    private ToggleButton lights;
+    private boolean lightsState;
     private int temperatureSet = 21;
     private Button temperatureUp;
     private Button temperatureDown;
@@ -77,6 +80,28 @@ public class MainRoomActivity extends AppCompatActivity {
                 temperatureView.setText(String.valueOf(temperatureSet) + ' ');
             }
         });
+
+        lights = (ToggleButton) findViewById(R.id.mainroomLightsButton);
+        lights.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lights.setChecked(lights.isChecked());
+                lightsState = lights.isChecked();
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (HomeActivity.roomLightingOverrided) {
+            lights.setChecked(false);
+            lights.setEnabled(false);
+        }
+        else {
+            lights.setChecked(lightsState);
+            lights.setEnabled(true);
+        }
     }
 
     @Override

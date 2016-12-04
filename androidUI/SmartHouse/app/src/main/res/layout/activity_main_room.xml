@@ -32,7 +32,7 @@
     <ToggleButton
         android:text="ToggleButton"
         android:layout_height="wrap_content"
-        android:id="@+id/MainroomLightsButton"
+        android:id="@+id/mainroomLightsButton"
         android:textOff="Turn room lights on"
         android:textOn="Turn room lights off"
         style="@android:style/Widget.Button.Toggle"
