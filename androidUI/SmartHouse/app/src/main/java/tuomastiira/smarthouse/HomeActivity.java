@@ -16,15 +16,15 @@ public class HomeActivity extends AppCompatActivity {
     public static boolean roomTemperatureOverrideEnabled = false;
     public static int roomTemperatureOverrideValue = 20;
 
-    private ToggleButton allDoors;
-    private ToggleButton frontDoor;
-    private ToggleButton backDoor;
-    private ToggleButton roomLightingOverride;
-    private ToggleButton roomTemperatureOverride;
-    private Button roomTemperatureUp;
-    private Button roomTemperatureDown;
-    private TextView roomTemperatureView;
     private Spinner spinner;
+    private ToggleButton allDoorsButton;
+    private ToggleButton frontDoorButton;
+    private ToggleButton backDoorButton;
+    private ToggleButton roomLightingOverrideButton;
+    private ToggleButton roomTemperatureOverrideButton;
+    private Button roomTemperatureUpButton;
+    private Button roomTemperatureDownButton;
+    private TextView roomTemperatureView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,38 +69,38 @@ public class HomeActivity extends AppCompatActivity {
 
         });
 
-        allDoors = (ToggleButton) findViewById(R.id.allDoorsButton);
-        allDoors.setOnClickListener(new ToggleButton.OnClickListener() {
+        allDoorsButton = (ToggleButton) findViewById(R.id.allDoorsButton);
+        allDoorsButton.setOnClickListener(new ToggleButton.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toggleDoor((ToggleButton) v.findViewById(R.id.allDoorsButton));
             }
         });
-        frontDoor = (ToggleButton) findViewById(R.id.frontDoorButton);
-        frontDoor.setOnClickListener(new ToggleButton.OnClickListener() {
+        frontDoorButton = (ToggleButton) findViewById(R.id.frontDoorButton);
+        frontDoorButton.setOnClickListener(new ToggleButton.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toggleDoor((ToggleButton) v.findViewById(R.id.frontDoorButton));
             }
         });
-        backDoor = (ToggleButton) findViewById(R.id.backDoorButton);
-        backDoor.setOnClickListener(new ToggleButton.OnClickListener() {
+        backDoorButton = (ToggleButton) findViewById(R.id.backDoorButton);
+        backDoorButton.setOnClickListener(new ToggleButton.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toggleDoor((ToggleButton) v.findViewById(R.id.backDoorButton));
             }
         });
 
-        roomLightingOverride = (ToggleButton) findViewById(R.id.roomLightingOverrideButton);
-        roomLightingOverride.setOnClickListener(new ToggleButton.OnClickListener() {
+        roomLightingOverrideButton = (ToggleButton) findViewById(R.id.roomLightingOverrideButton);
+        roomLightingOverrideButton.setOnClickListener(new ToggleButton.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toggleRoomLightingOverride();
             }
         });
 
-        roomTemperatureOverride = (ToggleButton) findViewById(R.id.roomTemperatureOverrideButton);
-        roomTemperatureOverride.setOnClickListener(new ToggleButton.OnClickListener() {
+        roomTemperatureOverrideButton = (ToggleButton) findViewById(R.id.roomTemperatureOverrideButton);
+        roomTemperatureOverrideButton.setOnClickListener(new ToggleButton.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toggleRoomTemperatureOverride();
@@ -109,18 +109,18 @@ public class HomeActivity extends AppCompatActivity {
 
         roomTemperatureView = (TextView) findViewById(R.id.roomTemperatureSet);
         roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + ' ');
-        roomTemperatureUp = (Button) findViewById(R.id.roomTemperatureUpButton);
-        roomTemperatureUp.setEnabled(false);
-        roomTemperatureUp.setOnClickListener(new Button.OnClickListener() {
+        roomTemperatureUpButton = (Button) findViewById(R.id.roomTemperatureUpButton);
+        roomTemperatureUpButton.setEnabled(false);
+        roomTemperatureUpButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 roomTemperatureOverrideValue += 1;
                 roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + ' ');
             }
         });
-        roomTemperatureDown = (Button) findViewById(R.id.roomTemperatureDownButton);
-        roomTemperatureDown.setEnabled(false);
-        roomTemperatureDown.setOnClickListener(new Button.OnClickListener() {
+        roomTemperatureDownButton = (Button) findViewById(R.id.roomTemperatureDownButton);
+        roomTemperatureDownButton.setEnabled(false);
+        roomTemperatureDownButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 roomTemperatureOverrideValue -= 1;
@@ -137,28 +137,28 @@ public class HomeActivity extends AppCompatActivity {
     private void toggleDoor(ToggleButton toggleButton) {
         switch (toggleButton.getId()) {
             case R.id.allDoorsButton:
-                frontDoor.setChecked(allDoors.isChecked());
-                backDoor.setChecked(allDoors.isChecked());
+                frontDoorButton.setChecked(allDoorsButton.isChecked());
+                backDoorButton.setChecked(allDoorsButton.isChecked());
                 break;
             case R.id.frontDoorButton:
-                frontDoor.setChecked(frontDoor.isChecked());
+                frontDoorButton.setChecked(frontDoorButton.isChecked());
                 break;
             case R.id.backDoorButton:
-                backDoor.setChecked(backDoor.isChecked());
+                backDoorButton.setChecked(backDoorButton.isChecked());
                 break;
         }
-        allDoors.setChecked(frontDoor.isChecked() || backDoor.isChecked());
+        allDoorsButton.setChecked(frontDoorButton.isChecked() || backDoorButton.isChecked());
     }
 
     private void toggleRoomLightingOverride() {
-        roomLightingOverride.setChecked(roomLightingOverride.isChecked());
-        roomLightingOverrideEnabled = roomLightingOverride.isChecked();
+        roomLightingOverrideButton.setChecked(roomLightingOverrideButton.isChecked());
+        roomLightingOverrideEnabled = roomLightingOverrideButton.isChecked();
     }
 
     private void toggleRoomTemperatureOverride() {
-        roomTemperatureOverride.setChecked(roomTemperatureOverride.isChecked());
-        roomTemperatureOverrideEnabled = roomTemperatureOverride.isChecked();
-        roomTemperatureUp.setEnabled(roomTemperatureOverride.isChecked());
-        roomTemperatureDown.setEnabled(roomTemperatureOverride.isChecked());
+        roomTemperatureOverrideButton.setChecked(roomTemperatureOverrideButton.isChecked());
+        roomTemperatureOverrideEnabled = roomTemperatureOverrideButton.isChecked();
+        roomTemperatureUpButton.setEnabled(roomTemperatureOverrideButton.isChecked());
+        roomTemperatureDownButton.setEnabled(roomTemperatureOverrideButton.isChecked());
     }
 }

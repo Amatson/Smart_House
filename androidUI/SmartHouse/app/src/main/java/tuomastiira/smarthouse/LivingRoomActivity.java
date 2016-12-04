@@ -13,11 +13,11 @@ import android.widget.ToggleButton;
 public class LivingRoomActivity extends AppCompatActivity {
 
     private Spinner spinner;
-    private ToggleButton lights;
+    private ToggleButton lightsButton;
     private boolean lightsState;
     private int temperatureSet = 22;
-    private Button temperatureUp;
-    private Button temperatureDown;
+    private Button temperatureUpButton;
+    private Button temperatureDownButton;
     private TextView temperatureView;
 
     @Override
@@ -65,16 +65,16 @@ public class LivingRoomActivity extends AppCompatActivity {
         temperatureView = (TextView) findViewById(R.id.livingroomTemperatureSet);
         temperatureView.setText(String.valueOf(temperatureSet) + ' ');
 
-        temperatureUp = (Button) findViewById(R.id.roomTemperatureUpButton);
-        temperatureUp.setOnClickListener(new Button.OnClickListener() {
+        temperatureUpButton = (Button) findViewById(R.id.roomTemperatureUpButton);
+        temperatureUpButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 temperatureSet += 1;
                 temperatureView.setText(String.valueOf(temperatureSet) + ' ');
             }
         });
-        temperatureDown = (Button) findViewById(R.id.roomTemperatureDownButton);
-        temperatureDown.setOnClickListener(new Button.OnClickListener() {
+        temperatureDownButton = (Button) findViewById(R.id.roomTemperatureDownButton);
+        temperatureDownButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 temperatureSet -= 1;
@@ -82,12 +82,12 @@ public class LivingRoomActivity extends AppCompatActivity {
             }
         });
 
-        lights = (ToggleButton) findViewById(R.id.livingroomLightsButton);
-        lights.setOnClickListener(new Button.OnClickListener() {
+        lightsButton = (ToggleButton) findViewById(R.id.livingroomLightsButton);
+        lightsButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lights.setChecked(lights.isChecked());
-                lightsState = lights.isChecked();
+                lightsButton.setChecked(lightsButton.isChecked());
+                lightsState = lightsButton.isChecked();
             }
         });
     }
@@ -97,22 +97,22 @@ public class LivingRoomActivity extends AppCompatActivity {
         super.onResume();
 
         if (HomeActivity.roomLightingOverrideEnabled) {
-            lights.setChecked(false);
-            lights.setEnabled(false);
+            lightsButton.setChecked(false);
+            lightsButton.setEnabled(false);
         } else {
-            lights.setChecked(lightsState);
-            lights.setEnabled(true);
+            lightsButton.setChecked(lightsState);
+            lightsButton.setEnabled(true);
         }
 
         if (HomeActivity.roomTemperatureOverrideEnabled) {
             temperatureView.setText(String.valueOf(HomeActivity.roomTemperatureOverrideValue) + ' ');
-            temperatureUp.setEnabled(false);
-            temperatureDown.setEnabled(false);
+            temperatureUpButton.setEnabled(false);
+            temperatureDownButton.setEnabled(false);
         }
         else {
             temperatureView.setText(String.valueOf(temperatureSet) + ' ');
-            temperatureUp.setEnabled(true);
-            temperatureDown.setEnabled(true);
+            temperatureUpButton.setEnabled(true);
+            temperatureDownButton.setEnabled(true);
         }
     }
 
