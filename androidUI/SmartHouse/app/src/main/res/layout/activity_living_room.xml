@@ -59,28 +59,24 @@
     <Button
         android:text="Increase"
         android:layout_height="wrap_content"
-        android:id="@+id/roomTemperatureUpButton"
+        android:id="@+id/livingroomTemperatureUpButton"
         style="@style/Base.Widget.AppCompat.Button.Small"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_width="80dp"
-        android:layout_above="@+id/roomTemperatureDownButton"
+        android:layout_width="100dp"
+        android:layout_below="@+id/livingroomLightsButton"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/livingroomTemperatureSet"
-        android:layout_toEndOf="@+id/livingroomTemperatureSet" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="Decrease"
         android:layout_height="wrap_content"
-        android:id="@+id/roomTemperatureDownButton"
+        android:id="@+id/livingroomTemperatureDownButton"
         style="@style/Base.Widget.AppCompat.Button.Small"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_width="80dp"
-        android:layout_centerVertical="true"
+        android:layout_width="100dp"
+        android:layout_below="@+id/livingroomTemperatureUpButton"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/livingroomTemperatureSet"
-        android:layout_toEndOf="@+id/livingroomTemperatureSet" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="TextView"
@@ -98,7 +94,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/livingroomTemperatureSetText"
-        android:layout_alignBottom="@+id/roomTemperatureDownButton"
+        android:layout_alignBottom="@+id/livingroomTemperatureDownButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="39dp" />

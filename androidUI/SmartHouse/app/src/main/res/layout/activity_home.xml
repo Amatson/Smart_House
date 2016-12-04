@@ -189,7 +189,7 @@
     <Button
         android:text="Increase"
         android:layout_height="wrap_content"
-        android:id="@+id/roomTemperatureUpButton"
+        android:id="@+id/livingroomTemperatureUpButton"
         style="@style/Base.Widget.AppCompat.Button.Small"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:layout_below="@+id/roomTemperatureOverrideButton"
@@ -200,10 +200,10 @@
     <Button
         android:text="Decrease"
         android:layout_height="wrap_content"
-        android:id="@+id/roomTemperatureDownButton"
+        android:id="@+id/livingroomTemperatureDownButton"
         style="@style/Base.Widget.AppCompat.Button.Small"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_below="@+id/roomTemperatureUpButton"
+        android:layout_below="@+id/livingroomTemperatureUpButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_width="90dp" />

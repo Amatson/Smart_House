@@ -114,7 +114,7 @@ public class HomeActivity extends AppCompatActivity {
         roomTemperatureTextView = (TextView) findViewById(R.id.roomTemperatureSetText);
         roomTemperatureTextView.setVisibility(View.INVISIBLE);
 
-        roomTemperatureUpButton = (Button) findViewById(R.id.roomTemperatureUpButton);
+        roomTemperatureUpButton = (Button) findViewById(R.id.livingroomTemperatureUpButton);
         roomTemperatureUpButton.setVisibility(View.INVISIBLE);
         roomTemperatureUpButton.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -123,7 +123,7 @@ public class HomeActivity extends AppCompatActivity {
                 roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + "°C ");
             }
         });
-        roomTemperatureDownButton = (Button) findViewById(R.id.roomTemperatureDownButton);
+        roomTemperatureDownButton = (Button) findViewById(R.id.livingroomTemperatureDownButton);
         roomTemperatureDownButton.setVisibility(View.INVISIBLE);
         roomTemperatureDownButton.setOnClickListener(new Button.OnClickListener() {
             @Override

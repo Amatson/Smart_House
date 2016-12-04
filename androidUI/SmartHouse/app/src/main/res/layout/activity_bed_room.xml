@@ -77,12 +77,10 @@
         android:id="@+id/bedroomTemperatureUpButton"
         style="@style/Base.Widget.AppCompat.Button.Small"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_width="80dp"
-        android:layout_above="@+id/bedroomTemperatureDownButton"
+        android:layout_width="100dp"
+        android:layout_below="@+id/bedroomLightsButton"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/bedroomTemperatureSet"
-        android:layout_toEndOf="@+id/bedroomTemperatureSet" />
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="Decrease"
@@ -90,12 +88,10 @@
         android:id="@+id/bedroomTemperatureDownButton"
         style="@style/Base.Widget.AppCompat.Button.Small"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_width="80dp"
-        android:layout_centerVertical="true"
+        android:layout_width="100dp"
+        android:layout_below="@+id/bedroomTemperatureUpButton"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/bedroomTemperatureSet"
-        android:layout_toEndOf="@+id/bedroomTemperatureSet" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="Set room temperature: "
