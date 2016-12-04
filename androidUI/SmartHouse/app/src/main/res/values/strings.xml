@@ -4,7 +4,7 @@
     <string-array name="spinnerItems">
         <item>Smart House Home</item>
         <item>Main room</item>
+        <item>Living room</item>
         <item>Bedroom</item>
-        <item>Livingroom</item>
     </string-array>
 </resources>

@@ -38,7 +38,7 @@
         android:id="@+id/textView12" />
 
     <TextView
-        android:text="Alerts: No alerts"
+        android:text="Alerts: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView12"
@@ -70,4 +70,82 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Increase"
+        android:layout_height="wrap_content"
+        android:id="@+id/bedroomTemperatureUpButton"
+        style="@style/Base.Widget.AppCompat.Button.Small"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_width="80dp"
+        android:layout_above="@+id/bedroomTemperatureDownButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/bedroomTemperatureSet"
+        android:layout_toEndOf="@+id/bedroomTemperatureSet" />
+
+    <Button
+        android:text="Decrease"
+        android:layout_height="wrap_content"
+        android:id="@+id/bedroomTemperatureDownButton"
+        style="@style/Base.Widget.AppCompat.Button.Small"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_width="80dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/bedroomTemperatureSet"
+        android:layout_toEndOf="@+id/bedroomTemperatureSet" />
+
+    <TextView
+        android:text="Set room temperature: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView31"
+        android:layout_alignBottom="@+id/bedroomTemperatureDownButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="39dp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bedroomTemperatureSet"
+        android:layout_alignBaseline="@+id/textView31"
+        android:layout_alignBottom="@+id/textView31"
+        android:layout_toRightOf="@+id/textView31"
+        android:layout_toEndOf="@+id/textView31"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="24 °C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView19"
+        android:layout_alignBaseline="@+id/textView11"
+        android:layout_alignBottom="@+id/textView11"
+        android:layout_toRightOf="@+id/textView11"
+        android:layout_toEndOf="@+id/textView11"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="42 %"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView11"
+        android:layout_toRightOf="@+id/textView12"
+        android:layout_toEndOf="@+id/textView12"
+        android:id="@+id/textView20"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="No alerts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView12"
+        android:layout_toRightOf="@+id/textView17"
+        android:layout_toEndOf="@+id/textView17"
+        android:id="@+id/textView23"
+        android:textStyle="normal|bold" />
 </RelativeLayout>

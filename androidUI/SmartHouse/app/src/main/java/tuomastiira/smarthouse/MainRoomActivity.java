@@ -28,7 +28,7 @@ public class MainRoomActivity extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id) {
-                switch(position){
+                switch (position) {
                     case 0:
                         Intent intent = new Intent(MainRoomActivity.this, HomeActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
