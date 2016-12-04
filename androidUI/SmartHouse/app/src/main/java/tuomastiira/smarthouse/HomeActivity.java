@@ -108,7 +108,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         roomTemperatureView = (TextView) findViewById(R.id.roomTemperatureSet);
-        roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + ' ');
+        roomTemperatureView.setText("- ");
         roomTemperatureUpButton = (Button) findViewById(R.id.roomTemperatureUpButton);
         roomTemperatureUpButton.setEnabled(false);
         roomTemperatureUpButton.setOnClickListener(new Button.OnClickListener() {
@@ -160,5 +160,9 @@ public class HomeActivity extends AppCompatActivity {
         roomTemperatureOverrideEnabled = roomTemperatureOverrideButton.isChecked();
         roomTemperatureUpButton.setEnabled(roomTemperatureOverrideButton.isChecked());
         roomTemperatureDownButton.setEnabled(roomTemperatureOverrideButton.isChecked());
+        if (roomTemperatureOverrideEnabled)
+            roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + ' ');
+        else
+            roomTemperatureView.setText("- ");
     }
 }
