@@ -65,7 +65,7 @@ public class LivingRoomActivity extends AppCompatActivity {
         temperatureView = (TextView) findViewById(R.id.livingroomTemperatureSet);
         temperatureView.setText(String.valueOf(temperatureSet) + ' ');
 
-        temperatureUp = (Button) findViewById(R.id.livingroomTemperatureUpButton);
+        temperatureUp = (Button) findViewById(R.id.roomTemperatureUpButton);
         temperatureUp.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +73,7 @@ public class LivingRoomActivity extends AppCompatActivity {
                 temperatureView.setText(String.valueOf(temperatureSet) + ' ');
             }
         });
-        temperatureDown = (Button) findViewById(R.id.livingroomTemperatureDownButton);
+        temperatureDown = (Button) findViewById(R.id.roomTemperatureDownButton);
         temperatureDown.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {

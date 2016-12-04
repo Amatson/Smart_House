@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class HomeActivity extends AppCompatActivity {
@@ -19,6 +21,9 @@ public class HomeActivity extends AppCompatActivity {
     private ToggleButton backDoor;
     private ToggleButton roomLightingOverride;
     private ToggleButton roomTemperatureOverride;
+    private Button roomTemperatureUp;
+    private Button roomTemperatureDown;
+    private TextView roomTemperatureView;
     private Spinner spinner;
 
     @Override
@@ -101,6 +106,27 @@ public class HomeActivity extends AppCompatActivity {
                 toggleRoomTemperatureOverride();
             }
         });
+
+        roomTemperatureView = (TextView) findViewById(R.id.roomTemperatureSet);
+        roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + ' ');
+        roomTemperatureUp = (Button) findViewById(R.id.roomTemperatureUpButton);
+        roomTemperatureUp.setEnabled(false);
+        roomTemperatureUp.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                roomTemperatureOverrideValue += 1;
+                roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + ' ');
+            }
+        });
+        roomTemperatureDown = (Button) findViewById(R.id.roomTemperatureDownButton);
+        roomTemperatureDown.setEnabled(false);
+        roomTemperatureDown.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                roomTemperatureOverrideValue -= 1;
+                roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + ' ');
+            }
+        });
     }
 
     @Override
@@ -132,5 +158,7 @@ public class HomeActivity extends AppCompatActivity {
     private void toggleRoomTemperatureOverride() {
         roomTemperatureOverride.setChecked(roomTemperatureOverride.isChecked());
         roomTemperatureOverrideEnabled = roomTemperatureOverride.isChecked();
+        roomTemperatureUp.setEnabled(roomTemperatureOverride.isChecked());
+        roomTemperatureDown.setEnabled(roomTemperatureOverride.isChecked());
     }
 }

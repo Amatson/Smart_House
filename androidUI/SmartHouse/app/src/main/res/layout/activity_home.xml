@@ -186,5 +186,47 @@
         android:id="@+id/textView21"
         android:textStyle="normal|bold" />
 
+    <Button
+        android:text="Increase"
+        android:layout_height="wrap_content"
+        android:id="@+id/roomTemperatureUpButton"
+        style="@style/Base.Widget.AppCompat.Button.Small"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_below="@+id/roomTemperatureOverrideButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="90dp" />
+
+    <Button
+        android:text="Decrease"
+        android:layout_height="wrap_content"
+        android:id="@+id/roomTemperatureDownButton"
+        style="@style/Base.Widget.AppCompat.Button.Small"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_below="@+id/roomTemperatureUpButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="90dp" />
+
+    <TextView
+        android:text="Set room temperature: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/roomTemperatureOverrideButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="38dp"
+        android:id="@+id/textView27" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView27"
+        android:layout_toRightOf="@+id/textView27"
+        android:layout_toEndOf="@+id/textView27"
+        android:id="@+id/roomTemperatureSet"
+        android:textStyle="normal|bold" />
+
 </RelativeLayout>
 
