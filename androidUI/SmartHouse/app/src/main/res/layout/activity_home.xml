@@ -9,27 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="tuomastiira.smarthouse.HomeActivity"
-    android:background="#612922">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Smart House Home"
-        android:textColor="#ffffff"
-        android:textSize="24sp"
-        android:id="@+id/textView3" />
-
-    <TextView
-        android:text="Outside temperature: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView8"
-        android:textSize="18sp"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#ffffff"
-        android:layout_marginTop="43dp" />
+    android:background="@android:color/background_light">
 
     <TextView
         android:text="Outside humidity: "
@@ -37,71 +17,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
         android:textSize="18sp"
-        android:textColor="#ffffff"
+        android:textColor="@android:color/black"
         android:layout_below="@+id/textView8"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <ToggleButton
-        android:text="ToggleButton"
-        android:layout_height="wrap_content"
-        android:id="@+id/allDoorsLockedButton"
-        android:textOff="Lock all doors"
-        android:textOn="Unlock all doors"
-        style="@android:style/Widget.Button.Toggle"
-        android:checked="false"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_width="wrap_content" />
-
-    <ToggleButton
-        android:text="ToggleButton"
-        android:layout_height="wrap_content"
-        android:id="@+id/backDoorLockedButton"
-        android:textOff="Lock backdoor"
-        android:textOn="Unlock backdoor"
-        style="@android:style/Widget.Button.Toggle"
-        android:layout_below="@+id/allDoorsLockedButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_width="160dp" />
-
-    <ToggleButton
-        android:text="ToggleButton"
-        android:layout_height="wrap_content"
-        android:id="@+id/frontDoorLockedButton"
-        android:textOff="Lock front door"
-        android:textOn="Unlock front door"
-        style="@android:style/Widget.Button.Toggle"
-        android:layout_below="@+id/allDoorsLockedButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_width="160dp" />
-
-    <ToggleButton
-        android:text="ToggleButton"
-        android:layout_height="wrap_content"
-        android:id="@+id/outdootLightsButton"
-        android:textOff="Turn outdoor lights on"
-        android:textOn="Turn outdoor lights off"
-        style="@android:style/Widget.Button.Toggle"
-        android:checked="false"
-        android:layout_width="160dp"
-        android:layout_below="@+id/backDoorLockedButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/outsideHumidityView"
-        android:textColor="#ffffff"
+        android:textColor="@android:color/black"
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
         android:layout_toRightOf="@+id/textView2"
@@ -111,11 +37,158 @@
         android:text="TextView"
         android:layout_height="wrap_content"
         android:id="@+id/outsideTemperatureView"
-        android:textColor="#ffffff"
+        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
         android:layout_alignBaseline="@+id/textView8"
         android:layout_alignBottom="@+id/textView8"
         android:layout_toRightOf="@+id/textView8"
         android:layout_toEndOf="@+id/textView8" />
+
+    <TextView
+        android:text="Alerts: No alerts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView14"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textView14"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView15"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="20dp"
+        android:textColor="@android:color/black" />
+
+    <ToggleButton
+        android:text="ToggleButton"
+        android:layout_height="wrap_content"
+        android:id="@+id/allDoorsLockedButton"
+        android:textOff="Lock all doors"
+        android:textOn="Unlock all doors"
+        style="@android:style/Widget.Button.Toggle"
+        android:checked="false"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textView15"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ToggleButton
+        android:text="ToggleButton"
+        android:layout_height="wrap_content"
+        android:id="@+id/frontDoorLockedButton"
+        android:textOff="Lock front door"
+        android:textOn="Unlock front door"
+        style="@android:style/Widget.Button.Toggle"
+        android:layout_width="160dp"
+        android:layout_below="@+id/allDoorsLockedButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ToggleButton
+        android:text="ToggleButton"
+        android:layout_height="wrap_content"
+        android:id="@+id/backDoorLockedButton"
+        android:textOff="Lock backdoor"
+        android:textOn="Unlock backdoor"
+        style="@android:style/Widget.Button.Toggle"
+        android:layout_width="160dp"
+        android:layout_below="@+id/allDoorsLockedButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ToggleButton
+        android:text="ToggleButton"
+        android:layout_height="wrap_content"
+        android:id="@+id/toggleButton9"
+        android:textOff="Turn outdoor lights on"
+        android:textOn="Turn outdoor lights off"
+        style="@android:style/Widget.Button.Toggle"
+        android:layout_width="160dp"
+        android:checked="false"
+        android:layout_below="@+id/frontDoorLockedButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ToggleButton
+        android:text="ToggleButton"
+        android:layout_height="wrap_content"
+        android:id="@+id/toggleButton10"
+        android:textOff="Room lighting override: OFF"
+        android:textOn="Room lighting override: ON"
+        style="@android:style/Widget.Button.Toggle"
+        android:layout_width="160dp"
+        android:checked="false"
+        android:layout_below="@+id/toggleButton9"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ToggleButton
+        android:text="ToggleButton"
+        android:layout_height="wrap_content"
+        android:id="@+id/outdootLightsButton"
+        android:textOff="Room temperature override: OFF"
+        android:textOn="Room temperature override: ON"
+        style="@android:style/Widget.Button.Toggle"
+        android:layout_width="160dp"
+        android:checked="false"
+        android:layout_below="@+id/toggleButton10"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Outside temperature: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView8"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/textView16"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:id="@+id/textView16"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Smart House Home"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/spinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
