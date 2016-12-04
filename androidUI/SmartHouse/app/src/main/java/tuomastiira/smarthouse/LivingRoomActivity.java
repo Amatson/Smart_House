@@ -7,41 +7,42 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
-public class MainRoomActivity extends AppCompatActivity {
+public class LivingRoomActivity extends AppCompatActivity {
 
     private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_room);
+        setContentView(R.layout.activity_living_room);
 
-        spinner = (Spinner) findViewById(R.id.mainroomSpinner);
-        spinner.setSelection(1);
+        spinner = (Spinner) findViewById(R.id.livingroomSpinner);
+        spinner.setSelection(2);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id) {
+                Intent intent;
                 switch(position){
                     case 0:
-                        Intent intent = new Intent(MainRoomActivity.this, HomeActivity.class);
+                        intent = new Intent(LivingRoomActivity.this, HomeActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         startActivity(intent);
-                        spinner.setSelection(1);
+                        spinner.setSelection(2);
                         break;
                     case 1:
+                        intent = new Intent(LivingRoomActivity.this, MainRoomActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intent);
+                        spinner.setSelection(2);
                         break;
                     case 2:
-                        intent = new Intent(MainRoomActivity.this, LivingRoomActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                        startActivity(intent);
-                        spinner.setSelection(1);
                         break;
                     case 3:
-                        intent = new Intent(MainRoomActivity.this, BedRoomActivity.class);
+                        intent = new Intent(LivingRoomActivity.this, BedRoomActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         startActivity(intent);
-                        spinner.setSelection(1);
+                        spinner.setSelection(2);
                         break;
                 }
             }
@@ -55,9 +56,9 @@ public class MainRoomActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(MainRoomActivity.this, HomeActivity.class);
+        Intent intent = new Intent(LivingRoomActivity.this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
-        spinner.setSelection(1);
+        spinner.setSelection(2);
     }
 }

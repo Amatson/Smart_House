@@ -30,7 +30,9 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id) {
-                switch(position){
+                switch (position) {
+                    case 0:
+                        break;
                     case 1:
                         Intent intent = new Intent(HomeActivity.this, MainRoomActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -38,6 +40,16 @@ public class HomeActivity extends AppCompatActivity {
                         spinner.setSelection(0);
                         break;
                     case 2:
+                        intent = new Intent(HomeActivity.this, LivingRoomActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intent);
+                        spinner.setSelection(0);
+                        break;
+                    case 3:
+                        intent = new Intent(HomeActivity.this, BedRoomActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intent);
+                        spinner.setSelection(0);
                         break;
                 }
             }
@@ -84,6 +96,11 @@ public class HomeActivity extends AppCompatActivity {
                 toggleRoomLightingOverride();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
     }
 
     private void toggleDoor(ToggleButton toggleButton) {

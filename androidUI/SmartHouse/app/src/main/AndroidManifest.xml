@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainRoomActivity"></activity>
+        <activity android:name=".MainRoomActivity" />
+        <activity android:name=".BedRoomActivity" />
+        <activity android:name=".LivingRoomActivity"></activity>
     </application>
 
 </manifest>
