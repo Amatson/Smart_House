@@ -95,13 +95,25 @@ public class BedRoomActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (HomeActivity.roomLightingOverrided) {
+
+        if (HomeActivity.roomLightingOverrideEnabled) {
             lights.setChecked(false);
             lights.setEnabled(false);
         }
         else {
             lights.setChecked(lightsState);
             lights.setEnabled(true);
+        }
+
+        if (HomeActivity.roomTemperatureOverrideEnabled) {
+            temperatureView.setText(String.valueOf(HomeActivity.roomTemperatureOverrideValue) + ' ');
+            temperatureUp.setEnabled(false);
+            temperatureDown.setEnabled(false);
+        }
+        else {
+            temperatureView.setText(String.valueOf(temperatureSet) + ' ');
+            temperatureUp.setEnabled(true);
+            temperatureDown.setEnabled(true);
         }
     }
 

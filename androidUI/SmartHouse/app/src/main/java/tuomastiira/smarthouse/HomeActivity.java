@@ -10,12 +10,15 @@ import android.widget.ToggleButton;
 
 public class HomeActivity extends AppCompatActivity {
 
-    public static boolean roomLightingOverrided = false;
+    public static boolean roomLightingOverrideEnabled = false;
+    public static boolean roomTemperatureOverrideEnabled = false;
+    public static int roomTemperatureOverrideValue = 20;
 
     private ToggleButton allDoors;
     private ToggleButton frontDoor;
     private ToggleButton backDoor;
     private ToggleButton roomLightingOverride;
+    private ToggleButton roomTemperatureOverride;
     private Spinner spinner;
 
     @Override
@@ -90,6 +93,14 @@ public class HomeActivity extends AppCompatActivity {
                 toggleRoomLightingOverride();
             }
         });
+
+        roomTemperatureOverride = (ToggleButton) findViewById(R.id.roomTemperatureOverrideButton);
+        roomTemperatureOverride.setOnClickListener(new ToggleButton.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleRoomTemperatureOverride();
+            }
+        });
     }
 
     @Override
@@ -115,6 +126,11 @@ public class HomeActivity extends AppCompatActivity {
 
     private void toggleRoomLightingOverride() {
         roomLightingOverride.setChecked(roomLightingOverride.isChecked());
-        roomLightingOverrided = roomLightingOverride.isChecked();
+        roomLightingOverrideEnabled = roomLightingOverride.isChecked();
+    }
+
+    private void toggleRoomTemperatureOverride() {
+        roomTemperatureOverride.setChecked(roomTemperatureOverride.isChecked());
+        roomTemperatureOverrideEnabled = roomTemperatureOverride.isChecked();
     }
 }
