@@ -17,6 +17,7 @@ public class HomeActivity extends AppCompatActivity {
     private ToggleButton frontDoor;
     private ToggleButton backDoor;
     private ToggleButton roomLightingOverride;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +25,17 @@ public class HomeActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_home);
 
-        final Spinner homeSpinner = (Spinner) findViewById(R.id.homeSpinner);
-        homeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner = (Spinner) findViewById(R.id.homeSpinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id) {
                 switch(position){
                     case 1:
-                        startActivity(new Intent(HomeActivity.this, MainRoomActivity.class));
-                        homeSpinner.setSelection(0);
+                        Intent intent = new Intent(HomeActivity.this, MainRoomActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intent);
+                        spinner.setSelection(0);
                         break;
                     case 2:
                         break;
