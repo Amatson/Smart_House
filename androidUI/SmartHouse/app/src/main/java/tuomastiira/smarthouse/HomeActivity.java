@@ -25,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button roomTemperatureUpButton;
     private Button roomTemperatureDownButton;
     private TextView roomTemperatureView;
+    private TextView roomTemperatureTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,23 +109,27 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         roomTemperatureView = (TextView) findViewById(R.id.roomTemperatureSet);
-        roomTemperatureView.setText("- ");
+        roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + "°C ");
+        roomTemperatureView.setVisibility(View.INVISIBLE);
+        roomTemperatureTextView = (TextView) findViewById(R.id.roomTemperatureSetText);
+        roomTemperatureTextView.setVisibility(View.INVISIBLE);
+
         roomTemperatureUpButton = (Button) findViewById(R.id.roomTemperatureUpButton);
-        roomTemperatureUpButton.setEnabled(false);
+        roomTemperatureUpButton.setVisibility(View.INVISIBLE);
         roomTemperatureUpButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 roomTemperatureOverrideValue += 1;
-                roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + ' ');
+                roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + "°C ");
             }
         });
         roomTemperatureDownButton = (Button) findViewById(R.id.roomTemperatureDownButton);
-        roomTemperatureDownButton.setEnabled(false);
+        roomTemperatureDownButton.setVisibility(View.INVISIBLE);
         roomTemperatureDownButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 roomTemperatureOverrideValue -= 1;
-                roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + ' ');
+                roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + "°C ");
             }
         });
     }
@@ -158,11 +163,11 @@ public class HomeActivity extends AppCompatActivity {
     private void toggleRoomTemperatureOverride() {
         roomTemperatureOverrideButton.setChecked(roomTemperatureOverrideButton.isChecked());
         roomTemperatureOverrideEnabled = roomTemperatureOverrideButton.isChecked();
-        roomTemperatureUpButton.setEnabled(roomTemperatureOverrideButton.isChecked());
-        roomTemperatureDownButton.setEnabled(roomTemperatureOverrideButton.isChecked());
-        if (roomTemperatureOverrideEnabled)
-            roomTemperatureView.setText(String.valueOf(roomTemperatureOverrideValue) + ' ');
-        else
-            roomTemperatureView.setText("- ");
+
+        int visibility = roomTemperatureOverrideEnabled ? View.VISIBLE : View.INVISIBLE;
+        roomTemperatureUpButton.setVisibility(visibility);
+        roomTemperatureDownButton.setVisibility(visibility);
+        roomTemperatureView.setVisibility(visibility);
+        roomTemperatureTextView.setVisibility(visibility);
     }
 }

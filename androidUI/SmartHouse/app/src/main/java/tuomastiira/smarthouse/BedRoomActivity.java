@@ -64,7 +64,7 @@ public class BedRoomActivity extends AppCompatActivity {
         });
 
         temperatureView = (TextView) findViewById(R.id.bedroomTemperatureSet);
-        temperatureView.setText(String.valueOf(temperatureSet) + ' ');
+        temperatureView.setText(String.valueOf(temperatureSet) + "°C ");
         temperatureTextView = (TextView) findViewById(R.id.bedroomTemperatureSetText);
         temperatureTextView.setText("Set room temperature: ");
 
@@ -73,7 +73,7 @@ public class BedRoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 temperatureSet += 1;
-                temperatureView.setText(String.valueOf(temperatureSet) + ' ');
+                temperatureView.setText(String.valueOf(temperatureSet) + "°C ");
             }
         });
         temperatureDownButton = (Button) findViewById(R.id.bedroomTemperatureDownButton);
@@ -81,7 +81,7 @@ public class BedRoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 temperatureSet -= 1;
-                temperatureView.setText(String.valueOf(temperatureSet) + ' ');
+                temperatureView.setText(String.valueOf(temperatureSet) + "°C ");
             }
         });
 
@@ -108,14 +108,14 @@ public class BedRoomActivity extends AppCompatActivity {
         }
 
         if (HomeActivity.roomTemperatureOverrideEnabled) {
-            temperatureView.setText(String.valueOf(HomeActivity.roomTemperatureOverrideValue) + ' ');
-            temperatureUpButton.setEnabled(false);
-            temperatureDownButton.setEnabled(false);
+            temperatureView.setText(String.valueOf(HomeActivity.roomTemperatureOverrideValue) + "°C ");
+            temperatureUpButton.setVisibility(View.INVISIBLE);
+            temperatureDownButton.setVisibility(View.INVISIBLE);
             temperatureTextView.setText("Overridden room temperature: ");
         } else {
-            temperatureView.setText(String.valueOf(temperatureSet) + ' ');
-            temperatureUpButton.setEnabled(true);
-            temperatureDownButton.setEnabled(true);
+            temperatureView.setText(String.valueOf(temperatureSet) + "°C ");
+            temperatureUpButton.setVisibility(View.VISIBLE);
+            temperatureDownButton.setVisibility(View.VISIBLE);
             temperatureTextView.setText("Set room temperature: ");
         }
     }
