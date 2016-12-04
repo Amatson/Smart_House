@@ -19,6 +19,7 @@ public class MainRoomActivity extends AppCompatActivity {
     private Button temperatureUpButton;
     private Button temperatureDownButton;
     private TextView temperatureView;
+    private TextView temperatureTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,8 @@ public class MainRoomActivity extends AppCompatActivity {
 
         temperatureView = (TextView) findViewById(R.id.mainroomTemperatureSet);
         temperatureView.setText(String.valueOf(temperatureSet) + ' ');
+        temperatureTextView = (TextView) findViewById(R.id.mainroomTemperatureSetText);
+        temperatureTextView.setText("Set room temperature: ");
 
         temperatureUpButton = (Button) findViewById(R.id.mainroomTemperatureUpButton);
         temperatureUpButton.setOnClickListener(new Button.OnClickListener() {
@@ -98,8 +101,7 @@ public class MainRoomActivity extends AppCompatActivity {
         if (HomeActivity.roomLightingOverrideEnabled) {
             lightsButton.setChecked(false);
             lightsButton.setEnabled(false);
-        }
-        else {
+        } else {
             lightsButton.setChecked(lightsState);
             lightsButton.setEnabled(true);
         }
@@ -108,11 +110,12 @@ public class MainRoomActivity extends AppCompatActivity {
             temperatureView.setText(String.valueOf(HomeActivity.roomTemperatureOverrideValue) + ' ');
             temperatureUpButton.setEnabled(false);
             temperatureDownButton.setEnabled(false);
-        }
-        else {
+            temperatureTextView.setText("Overridden room temperature: ");
+        } else {
             temperatureView.setText(String.valueOf(temperatureSet) + ' ');
             temperatureUpButton.setEnabled(true);
             temperatureDownButton.setEnabled(true);
+            temperatureTextView.setText("Set room temperature: ");
         }
     }
 

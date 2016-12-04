@@ -87,17 +87,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/livingroomTemperatureSet"
-        android:layout_alignBaseline="@+id/textView30"
-        android:layout_alignBottom="@+id/textView30"
-        android:layout_toRightOf="@+id/textView30"
-        android:layout_toEndOf="@+id/textView30"
+        android:layout_alignBaseline="@+id/livingroomTemperatureSetText"
+        android:layout_alignBottom="@+id/livingroomTemperatureSetText"
+        android:layout_toRightOf="@+id/livingroomTemperatureSetText"
+        android:layout_toEndOf="@+id/livingroomTemperatureSetText"
         android:textStyle="normal|bold" />
 
     <TextView
         android:text="Set room temperature: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView30"
+        android:id="@+id/livingroomTemperatureSetText"
         android:layout_alignBottom="@+id/roomTemperatureDownButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
