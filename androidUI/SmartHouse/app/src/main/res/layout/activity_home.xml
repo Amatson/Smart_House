@@ -33,10 +33,10 @@
         android:textOff="Lock front door"
         android:textOn="Unlock front door"
         style="@android:style/Widget.Button.Toggle"
-        android:layout_width="160dp"
         android:layout_below="@+id/allDoorsButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_width="164dp" />
 
     <ToggleButton
         android:text="ToggleButton"
@@ -45,10 +45,10 @@
         android:textOff="Lock backdoor"
         android:textOn="Unlock backdoor"
         style="@android:style/Widget.Button.Toggle"
-        android:layout_width="160dp"
         android:layout_below="@+id/allDoorsButton"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_width="164dp" />
 
     <ToggleButton
         android:text="ToggleButton"
@@ -117,16 +117,6 @@
         android:layout_alignParentStart="true"
         android:layout_height="45dp"
         android:background="@android:drawable/btn_dropdown"/>
-
-    <TextView
-        android:text="Outside temperature: "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView16"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp"
-        android:id="@+id/textView2" />
 
     <TextView
         android:text="Alerts: "
@@ -228,6 +218,15 @@
         android:layout_toEndOf="@+id/roomTemperatureSetText"
         android:id="@+id/roomTemperatureSet"
         android:textStyle="normal|bold" />
+
+    <TextView
+        android:text="Outside temperature: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/homeSpinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
 
