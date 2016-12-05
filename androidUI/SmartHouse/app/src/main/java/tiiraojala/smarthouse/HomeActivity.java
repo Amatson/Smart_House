@@ -1,4 +1,4 @@
-package tuomastiira.smarthouse;
+package tiiraojala.smarthouse;
 
 import android.content.Intent;
 import android.os.Bundle;

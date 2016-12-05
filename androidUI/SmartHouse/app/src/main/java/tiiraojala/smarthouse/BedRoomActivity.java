@@ -1,4 +1,4 @@
-package tuomastiira.smarthouse;
+package tiiraojala.smarthouse;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,12 +10,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-public class MainRoomActivity extends AppCompatActivity {
+public class BedRoomActivity extends AppCompatActivity {
 
     private Spinner spinner;
     private ToggleButton lightsButton;
     private boolean lightsState;
-    private int temperatureSet = 21;
+    private int temperatureSet = 20;
     private Button temperatureUpButton;
     private Button temperatureDownButton;
     private TextView temperatureView;
@@ -24,34 +24,35 @@ public class MainRoomActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_room);
+        setContentView(R.layout.activity_bed_room);
 
-        spinner = (Spinner) findViewById(R.id.mainroomSpinner);
-        spinner.setSelection(1);
+        spinner = (Spinner) findViewById(R.id.bedroomSpinner);
+        spinner.setSelection(3);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> arg0, View view, int position, long row_id) {
+                Intent intent;
                 switch (position) {
                     case 0:
-                        Intent intent = new Intent(MainRoomActivity.this, HomeActivity.class);
+                        intent = new Intent(BedRoomActivity.this, HomeActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         startActivity(intent);
-                        spinner.setSelection(1);
+                        spinner.setSelection(3);
                         break;
                     case 1:
+                        intent = new Intent(BedRoomActivity.this, MainRoomActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        startActivity(intent);
+                        spinner.setSelection(3);
                         break;
                     case 2:
-                        intent = new Intent(MainRoomActivity.this, LivingRoomActivity.class);
+                        intent = new Intent(BedRoomActivity.this, LivingRoomActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                         startActivity(intent);
-                        spinner.setSelection(1);
+                        spinner.setSelection(3);
                         break;
                     case 3:
-                        intent = new Intent(MainRoomActivity.this, BedRoomActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                        startActivity(intent);
-                        spinner.setSelection(1);
                         break;
                 }
             }
@@ -62,12 +63,12 @@ public class MainRoomActivity extends AppCompatActivity {
             }
         });
 
-        temperatureView = (TextView) findViewById(R.id.mainroomTemperatureSet);
+        temperatureView = (TextView) findViewById(R.id.bedroomTemperatureSet);
         temperatureView.setText(String.valueOf(temperatureSet) + "°C ");
-        temperatureTextView = (TextView) findViewById(R.id.mainroomTemperatureSetText);
+        temperatureTextView = (TextView) findViewById(R.id.bedroomTemperatureSetText);
         temperatureTextView.setText("Set room temperature: ");
 
-        temperatureUpButton = (Button) findViewById(R.id.mainroomTemperatureUpButton);
+        temperatureUpButton = (Button) findViewById(R.id.bedroomTemperatureUpButton);
         temperatureUpButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +76,7 @@ public class MainRoomActivity extends AppCompatActivity {
                 temperatureView.setText(String.valueOf(temperatureSet) + "°C ");
             }
         });
-        temperatureDownButton = (Button) findViewById(R.id.mainroomTemperatureDownButton);
+        temperatureDownButton = (Button) findViewById(R.id.bedroomTemperatureDownButton);
         temperatureDownButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +85,7 @@ public class MainRoomActivity extends AppCompatActivity {
             }
         });
 
-        lightsButton = (ToggleButton) findViewById(R.id.mainroomLightsButton);
+        lightsButton = (ToggleButton) findViewById(R.id.bedroomLightsButton);
         lightsButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,9 +122,9 @@ public class MainRoomActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(MainRoomActivity.this, HomeActivity.class);
+        Intent intent = new Intent(BedRoomActivity.this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
-        spinner.setSelection(1);
+        spinner.setSelection(3);
     }
 }

@@ -1,4 +1,4 @@
-package tuomastiira.smarthouse;
+package tiiraojala.smarthouse;
 
 import org.junit.Test;
 
