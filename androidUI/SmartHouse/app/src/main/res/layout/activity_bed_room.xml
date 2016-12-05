@@ -12,12 +12,14 @@
 
     <Spinner
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/bedroomSpinner"
-        android:entries="@array/spinnerItems" />
+        android:entries="@array/spinnerItems"
+        android:layout_height="45dp"
+        android:background="@android:drawable/btn_dropdown"/>
 
     <TextView
         android:text="Temperature: "
